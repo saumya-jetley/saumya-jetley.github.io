@@ -231,6 +231,7 @@
             opacity: 1;
         }
 
+        
     </style>
 
 </head>
@@ -238,7 +239,7 @@
     <nav>
         <div class="nav-links">
             <!-- Only show logo on non-homepage pages -->
-            <div class="logo-img"><img height="55rem" src="./images/adhyaai.png" alt="AdhyaAI"></div>
+            <div class="logo-img"><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="height: 3.5rem; display: none;"></div>
             <a href="#" onclick="showPage('who_we_are')">Who we are</a>
             <a href="#" onclick="showPage('what_we_do')">What we do</a>
             <a href="#" onclick="showPage('how_we_work')">How we work</a>
@@ -376,6 +377,7 @@
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+            document.getElementById('adhyaai-logo').style.display = pageId !== 'who_we_are' ? 'block' : 'none';
         }
     </script>
 
