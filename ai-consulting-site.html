@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdhyaAI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'arial', sans-serif;
+            background-color: #f5e678;
+            color: #333;
+        }
+        
+        nav {
+            background-color: #faf6f6;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-img {
+            position:absolute;
+            left:0.4rem;
+            top:0.4rem;
+            margin: 0 3rem 3rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #333;
+        }
+        
+        .page.homepage {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page.otherpages {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page.active {
+            display: flex;
+            align-items: flex-star;
+            justify-content: space-between;
+        }
+        
+        .content {
+            flex: 1;
+            max-width: 80%;
+        }
+        
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 1.2rem;
+            color: #2C3E50;
+        }
+        
+        p {
+            font-size: 1.0rem;
+            line-height: 2.0;
+            margin-bottom: 0.8rem;
+        }
+
+        ul {
+            font-size: 1.1rem;
+            line-height: 2.0;
+            margin-bottom: 1rem;
+        }
+
+         img{
+            vertical-align: middle;
+        }
+
+        .outer-container {
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 20px;
+            width: 42rem;
+            position: relative;
+        }
+        .container-title {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        .main-container {
+            display: flex;
+            width: 60rem;
+        }
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 20rem;
+        }
+        
+        .mustard-box {
+            background-color: #f5e678;
+            padding: 15px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            border-radius: 15px;
+            margin-right: 15px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mustard-box:hover {
+            background-color: #FFC107; /* Darker mustard color on hover */
+        }
+        
+        .hover-text {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #f5e678;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 10;
+            width: 200px;
+            border-radius: 10px;
+            animation: popUp 0.3s ease;
+        }
+        
+        .mustard-box:hover .hover-text {
+            display: block;
+        }
+
+        mustard-box:active, .mustard-box.active {
+            background-color: #FF9800;
+        }
+        
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .text-container {
+            width: 40rem;
+            border: none; /* Removed border color */
+            background-color: #f5e670; /* Added light background for visibility */
+            border-radius: 15px;
+            padding: 20px;
+            margin-left: 20px;
+            font-family: 'arial', sans-serif;
+            font-size: 1.0rem;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px;
+            width: 40rem;
+        }
+        .logo-item {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            transition: transform 0.3s ease;
+        }
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .logo-hover-text {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-size:0.9rem;
+            z-index: 10;
+        }
+        .logo-item:hover {
+            transform: scale(1.1);
+        }
+        .logo-item:hover .logo-hover-text {
+            opacity: 1;
+        }
+ 
+        
+    </style>
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <!-- Only show logo on non-homepage pages -->
+            <div class="logo-img"><img height="55rem" src="./images/adhyaai.png" alt="AdhyaAI"></div>
+            <a href="" onclick="showPage('Who we are')">Who we are</a>
+            <a href="#" onclick="showPage('What we do')">What we do</a>
+            <a href="#" onclick="showPage('How we work')">How we work</a>
+            <a href="#" onclick="showPage('and, with Whom')">and, with Whom</a>
+        </div>
+        
+    </nav>
+
+    <div id="Who we are" class="page homepage active">
+        <div class="content">
+            <h1>AdhyaAI</h1>  
+            <h4> <i>from the union of <b>AI</b> with the <i>sanskrit</i> word<a> <img src="./images/text-1737546265310.png" height="25rem"></a><br></i></h4>
+            <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in GenAI tools and techniques, to integrate AI within existing workflows making them smarter and more efficient.</p>
+
+<p>With over 10 years of expertise in <b>artificial intelligence, machine learning, and computer vision</b> my mission is simple: <b>to discover, design and embed AI reasoning and inference capabilities to power new-age frontier systems</b>.</p> 
+<p>I work on-ground with client teams to build <b>AI-first:User-first</b> products with prior contributions to sectors of HealthTech, EdTech, Insurance. I come with an added passion for AI leadership, education, and upskilling</p>
+
+            
+        </div>
+        <div class="image-container">
+            <img src="/api/placeholder/500/400" alt="AI Technology Illustration">
+        </div>
+    </div>
+
+    <div id="What we do" class="page otherpages">
+        <div class="content">            
+            <h1>What we do</h1>
+            <p>
+            My work is by turns broad and focused. 
+            <br>When I take a project, I go deep and dirty, having already carved niches in the following areas:
+            <br>
+            <br>
+            <div class="outer-container">
+                <div class="container-title">AI-centric</div>
+                    <div class="mustard-box">
+                        <a> <b>Startup Consulting</b></a>
+                        <div class="hover-text">
+                            <ul>
+                            <li>Startup strategic consulting</li>
+                            <li>AI-centric product discovery</li> 
+                            <li>AI product design and roadmap</li>
+                            <li>AI/Tech discernment</li> 
+                            <li>Hand-holded Tech development</li>  
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mustard-box">
+                        <a><b> Institution building</b></a>
+                        <div class="hover-text">
+                            <ul>
+                            <li>White-papering research labs/ Startup centers</li>
+                            <li>Growth strategy</li> 
+                            <li>Partnership design</li>  
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="mustard-box">
+                        <a> <b>Education and Upskilling</b></a>
+                        <div class="hover-text">
+                            <ul>
+                            <li>AI programme design</li>
+                            <li>Directorial leadership</li> 
+                            <li>Course design and delivery</li>  
+                            </ul>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="How we work" class="page otherpages">
+        <div class="content">
+            <h1>How we work</h1>
+            <div class="main-container">
+                <div class="box-container">
+                    <div class="mustard-box" onclick="showText(1)"><b>Discover</b></div>
+                    <div class="mustard-box" onclick="showText(2)"><b>Design</b></div>
+                    <div class="mustard-box" onclick="showText(3)"><b>Develop</b></div>
+                    <div class="mustard-box" onclick="showText(4)"><b>Deliver</b></div>
+                </div>
+                <div class="text-container" id="textDisplay"> </div>
+                </div>
+            <script>
+                function showText(boxNumber) {
+                const textDisplay = document.getElementById('textDisplay');
+                const texts = {
+                    1: '<b>Discover</b>: Problem solving landscape is fast evolving. The journey of invention for businesses old and new starts with identifying new functionalities. The most valuable of these are the ones that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. We help businesses discover these features so the vision matches well the execution.',
+                    2: '<b>Design</b>: We help design and roadmap AI-centric products. Defining their look and feel and scope, but most importantly the essentials of scalability. We help you think through AI system design so it can track and ingest relevant data, and ultimately learn and grow.',
+                    3: '<b>Develop</b>: Existing teams need guidance with tech discernment: models abound, but which ones are most suitable? Thus, hand-holding, management, and upskilling become critical. We work closely with client teams to achieve this. Our motto is, if its from a distance its oversight, if it\'s on ground, it\'s real work.',
+                    4: '<b>Deliver</b>: We not only build AI models and tools (the whole range from earliest regression to CNNs to Agentic AI), write technical concept papers, and grant proposals, design evidence-based research, develop study programmes - but also - work with you for the last mile delivery.'
+                };
+                textDisplay.innerHTML = texts[boxNumber];
+                }
+            </script>
+        </div>
+    </div>
+
+    <div id="and, with Whom" class="page otherpages">
+        <div class="and, with Whom">
+            <h2> So far we've worked with,</h2>
+            <div class="logo-container">
+            <a href="https://plaksha.edu.in/ug/btech-degree/computer-science-and-artificial-intelligence" class="logo-item">
+                <img src="./images/plaksha_university.png" alt="Plaksha_University">
+                <span class="logo-hover-text">Reimagining Tech Education and Research</span>
+            </a>
+            <a href="https://plaksha.edu.in/pg/tech-leaders-fellowship" class="logo-item">
+                <img src="./images/plaksha_tlp.jpeg" alt="TLP">
+                <span class="logo-hover-text">Technology Leadership in Data Science and AI </span>
+            </a>
+            <a href="https://vitt.ai/" class="logo-item">
+                <img src="./images/vitt_ai.jpeg" alt="Vitt_AI">
+                <span class="logo-hover-text">Simplifying Markets Democratizing Finance</span>
+            </a>
+            <a href="https://www.vitally.health/" class="logo-item">
+                <img src="./images/vitally_health.jpeg" alt="Vitally_Health">
+                <span class="logo-hover-text">Making Precision Heart Health Mainstream</span>
+            </a>
+            <a href="https://www.vascai.com/" class="logo-item">
+                <img src="./images/vascai.png" alt="VascAI">
+                <span class="logo-hover-text">Truly personalised care</span>
+            </a>
+        </div>
+        <br>
+        <br>
+        <hr className="border-t-2 border-gray-300 mb-6" />
+        <p> <i>Join the list, give us a challenge; let's work together.<br>
+            Reach out to me at:<span class="mustard-box"><a><b>saumya.jetley@adhyaai.com</b></a></span></i></p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
