@@ -15,7 +15,7 @@
         
         nav {
             background-color: #faf6f6;
-            padding: 1rem;
+            padding: 1em;
             position: fixed;
             width: 100%;
             top: 0;
@@ -24,22 +24,22 @@
 
         .logo-img {
             position:absolute;
-            left:0.4rem;
-            top:0.4rem;
-            margin: 0 3rem 3rem 0;
+            left:0.4em;
+            top:0.4em;
+            margin: 0 3em 3em 0;
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2em;
         }
         
         .nav-links a {
             color: #666;
             text-decoration: none;
             font-size: 1.1rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5em 1em;
             transition: color 0.3s;
         }
         
@@ -49,9 +49,9 @@
         
         .page.homepage {
             min-height: 100vh;
-            padding: 6rem 2rem 2rem;
+            padding: 6em 2em 2em;
             display: none;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -59,7 +59,7 @@
             min-height: 100vh;
             padding: 6rem 2rem 2rem;
             display: none;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -104,19 +104,19 @@
         }
 
         .outer-container {
-            border: 2px solid #333;
-            border-radius: 20px;
-            padding: 20px;
-            width: 42rem;
+            border: 0.4rem solid #333;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            width: 40rem;
             position: relative;
         }
         .container-title {
-            position: absolute;
-            top: -15px;
+            position: relative;
+            top: -2rem;
             left: 50%;
             transform: translateX(-50%);
             background-color: white;
-            padding: 0 10px;
+            padding: 0 0.5rem;
             font-weight: bold;
         }
 
@@ -124,22 +124,24 @@
             display: flex;
             width: 60rem;
         }
+        
         .box-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            width: 20rem;
+            gap: 1rem;
+            width: 4rem;
         }
         
         .mustard-box {
             background-color: #f5e678;
-            padding: 15px;
+            padding: 0.5rem;
             display: inline-block;
             position: relative;
             cursor: pointer;
-            border-radius: 15px;
-            margin-right: 15px;
+            border-radius: 2rem;
+            margin-right: 2rem;
             transition: background-color 0.3s ease;
+            font-size:1rem;
         }
         
         .mustard-box:hover {
@@ -152,20 +154,21 @@
             top: 100%;
             left: 0;
             background-color: white;
-            border: 1px solid #f5e678;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 0.1rem solid #f5e678;
+            padding: 1rem;
+            box-shadow: 0 6rem 6rem rgba(0,0,0,0.2);
             z-index: 10;
-            width: 200px;
-            border-radius: 10px;
+            width: 15rem;
+            border-radius: 1rem;
             animation: popUp 0.3s ease;
+            font-size:0.6rem;
         }
         
         .mustard-box:hover .hover-text {
             display: block;
         }
 
-        .mustard-box:active, .mustard-box.active {
+        mustard-box:active, .mustard-box.active {
             background-color: #FF9800;
         }
         
@@ -184,9 +187,9 @@
             width: 40rem;
             border: none; /* Removed border color */
             background-color: #f5e670; /* Added light background for visibility */
-            border-radius: 15px;
-            padding: 20px;
-            margin-left: 20px;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-left: 2rem;
             font-family: 'arial', sans-serif;
             font-size: 1.0rem;
         }
@@ -195,14 +198,14 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            padding: 10px;
-            width: 40rem;
+            gap: 3rem;
+            padding: 1rem;
+            width: 30rem;
         }
         .logo-item {
             position: relative;
-            width: 150px;
-            height: 100px;
+            width: 10rem;
+            height: 7rem;
             transition: transform 0.3s ease;
         }
         .logo-item img {
@@ -212,13 +215,13 @@
         }
         .logo-hover-text {
             position: absolute;
-            bottom: -20px;
+            bottom: -2rem;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(0,0,0,0.8);
             color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            border-radius: 0.4rem;
             opacity: 0;
             transition: opacity 0.4s ease;
             font-size:0.9rem;
@@ -230,10 +233,9 @@
         .logo-item:hover .logo-hover-text {
             opacity: 1;
         }
-
+ 
         
     </style>
-
 </head>
 <body>
     <nav>
