@@ -36,7 +36,8 @@
             flex:1;
             align-items: center;
             justify-content: center;
-            width: 80%; /* Ensures container doesn't exceed screen width */
+            width: 75rem;
+            max-width: 95%; /* Ensures container doesn't exceed screen width */
         }
 
         #adhyaai-logo{
@@ -48,7 +49,7 @@
             color: #666;
             text-decoration: none;
             transition: color 0.3s;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
         }
         
@@ -275,7 +276,7 @@
     <nav>
         <div class="nav-links">
             <!-- Only show logo on non-homepage pages -->
-            <a><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="width: 10rem; visibility: hidden;"></a>
+            <a><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="width: 9rem; visibility: hidden;"></a>
             <a href="#" onclick="showPage('who_we_are')">Who we are</a>
             <a href="#" onclick="showPage('what_we_do')">What we do</a>
             <a href="#" onclick="showPage('how_we_work')">How we work</a>
