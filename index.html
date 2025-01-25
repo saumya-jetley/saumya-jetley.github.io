@@ -32,9 +32,9 @@
         .nav-links a {
             color: #666;
             text-decoration: none;
-            font-size: 1.3rem;
             padding: 0.2% 0.2% 0.2% 0.3%;
             transition: color 0.3s;
+            font-size: 1.3vw;
         }
         
         .nav-links a:hover {
@@ -86,21 +86,21 @@
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.1rem;
+            font-size: 6.0vh;
+            margin-bottom: 2.0vh;
             color: #2C3E50;
         }
         
         p {
-            font-size: 1.0rem;
-            line-height: 2.0;
-            margin-bottom: 0.8rem;
+            font-size: 2.5vh;
+            line-height: 3.5vh;
+            margin-bottom: 2vh;
         }
 
         ul {
-            font-size: 1.1rem;
-            line-height: 2.0;
-            margin-bottom: 1rem;
+            font-size: 2.5vh;
+            line-height: 3.5vh;
+            margin-bottom: 2vh;
         }
 
          img{
@@ -109,9 +109,9 @@
 
         /* page what we do */
         .outer-container {
-            border: 2px solid #333;
-            border-radius: 2px;
-            padding: 0.4%;
+            border: 0.1vw solid #333;
+            border-radius: 0.1vw;
+            padding: 1vw;
             width: 55%;
             position: relative;
             justify-content: center;
@@ -120,7 +120,7 @@
         .container-title {
             position: relative;
             left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-60%);
             background-color: white;
             padding: 1% 2% 1% 2%;
             font-weight: bold;
@@ -138,8 +138,9 @@
         .box-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            width: 15%;
+            gap: 3vh;
+            padding: 0 1vw 0 0;
+            width: 18%;
         }
 
         .text-container {
@@ -151,19 +152,19 @@
             padding: 2px;
             margin-left: 2px;
             font-family: 'arial', sans-serif;
-            font-size: 1.0rem;
+            font-size: 2.5vh;
         }
         
         .mustard-box {
             background-color: #f5e678;
-            padding: 0.5px;
             display: inline-block;
+            padding: 1vh 0.2vw 1vh 0.2vw; 
             position: relative;
             cursor: pointer;
-            border-radius: 2px;
-            margin-right: 2px;
+            border-radius: 0.5vw;
+            margin-right: 0.2vw;
             transition: background-color 0.3s ease;
-            font-size:1rem;
+            font-size:2.5vh;
             width: 100%;
         }
         
@@ -177,14 +178,14 @@
             top: 100%;
             left: 0;
             background-color: white;
-            border: 0.1rem solid #f5e678;
-            padding: 1rem;
-            box-shadow: 0 6rem 6rem rgba(0,0,0,0.2);
+            border: 1vh solid #f5e678;
+            padding: 2px;
+            box-shadow: 0 3vw 3vw rgba(0,0,0,0.2);
             z-index: 10;
-            width: 15rem;
-            border-radius: 1rem;
+            width: 10vw;
+            border-radius: 2px;
             animation: popUp 0.3s ease;
-            font-size:0.6rem;
+            font-size:2vh;
         }
         
         .mustard-box:hover .hover-text {
@@ -213,7 +214,7 @@
             flex-wrap: wrap;
             flex: 1;
             justify-content: center;
-            gap: 2%;
+            gap: 2vh;
             padding: 1px;
             width: 40%;
         }
@@ -237,7 +238,7 @@
             border-radius: 1px;
             opacity: 0;
             transition: opacity 0.4s ease;
-            font-size:0.9rem;
+            font-size:2vh;
             z-index: 10;
         }
         .logo-item:hover {
