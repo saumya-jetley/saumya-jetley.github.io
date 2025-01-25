@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdhyaAI</title>
     <style>
+        :root {
+           font-size: 16px; /* Base font size */
+        }
+
+        @media screen and (max-width: 768px) {
+            :root {
+                font-size: 12px; /* Smaller for mobile */
+            }
+        }
+        
         body {
             margin: 0;
             padding: 0;
@@ -23,16 +33,15 @@
 
         .nav-links {
             display: flex;
-            max-width: 80%;
+            max-width: 85%;
             align-items: center;
             justify-content: center;
-            gap: 5%;
+            column-gap: 3.5rem; /* Horizontal spacing */
         }
         
         .nav-links a {
             color: #666;
             text-decoration: none;
-            padding: 0.2% 0.2% 0.2% 0.3%;
             transition: color 0.3s;
             font-size: 1.3vw;
         }
@@ -64,17 +73,17 @@
         .homecontent {
             flex: 1;
             max-width: 80%;
-            padding: 1% 1% 1% 7%;
             justify-content: center;
             align-items: center;
+            padding: 1% 1% 1% 7%;
         }
 
         .othercontent {
             flex: 1;
             max-width: 95%;
-            padding: 1% 2% 1% 7%;
             justify-content: center;
             align-items: center;
+            padding: 1% 2% 1% 7%;
         }   
         
         
@@ -86,21 +95,27 @@
         }
         
         h1 {
-            font-size: 6.0vh;
-            margin-bottom: 2.0vh;
+            font-size: 2.5rem;
+            margin-bottom: 1.0rem;
+            color: #2C3E50;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.0rem;
             color: #2C3E50;
         }
         
         p {
-            font-size: 2.5vh;
-            line-height: 3.5vh;
-            margin-bottom: 2vh;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            margin-bottom: 0.2rem;
         }
 
         ul {
-            font-size: 2.5vh;
-            line-height: 3.5vh;
-            margin-bottom: 2vh;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            margin-bottom: 0.2rem;
         }
 
          img{
@@ -109,9 +124,9 @@
 
         /* page what we do */
         .outer-container {
-            border: 0.1vw solid #333;
-            border-radius: 0.1vw;
-            padding: 1vw;
+            border: 0.1rem solid #333;
+            border-radius: 0.1rem;
+            padding: 0.2rem;
             width: 55%;
             position: relative;
             justify-content: center;
@@ -122,10 +137,11 @@
             left: 50%;
             transform: translateX(-50%) translateY(-60%);
             background-color: white;
-            padding: 1% 2% 1% 2%;
             font-weight: bold;
             width: 20%;
             text-align: center;
+            padding: 1% 2% 1% 2%;
+            
         }
 
         /* page how we do*/
@@ -138,9 +154,9 @@
         .box-container {
             display: flex;
             flex-direction: column;
-            gap: 3vh;
-            padding: 0 1vw 0 0;
             width: 18%;
+            gap: 1.5rem;
+            padding: 0 0.2rem 0 0;
         }
 
         .text-container {
@@ -148,24 +164,24 @@
             width: 40%;
             border: none; /* Removed border color */
             background-color: #f5e670; /* Added light background for visibility */
-            border-radius: 2px;
-            padding: 2px;
-            margin-left: 2px;
+            border-radius: 0.2rem;
+            padding: 0.2rem;
+            margin-left: 0.2rem;
             font-family: 'arial', sans-serif;
-            font-size: 2.5vh;
+            font-size: 1rem;
         }
         
         .mustard-box {
             background-color: #f5e678;
             display: inline-block;
-            padding: 1vh 0.2vw 1vh 0.2vw; 
             position: relative;
             cursor: pointer;
-            border-radius: 0.5vw;
-            margin-right: 0.2vw;
+            border-radius: 0.2rem;
+            margin-right: 0.2rem;
             transition: background-color 0.3s ease;
-            font-size:2.5vh;
             width: 100%;
+            font-size:1.1rem;
+            padding: 0.1rem 0.1rem 0.1rem 0.1rem;
         }
         
         .mustard-box:hover {
@@ -176,16 +192,15 @@
             display: none;
             position: absolute;
             top: 100%;
-            left: 0;
             background-color: white;
-            border: 1vh solid #f5e678;
-            padding: 2px;
-            box-shadow: 0 3vw 3vw rgba(0,0,0,0.2);
+            border: 0.2rem solid #f5e678;
+            padding: 0.2rem;
+            box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.2);
             z-index: 10;
-            width: 15vw;
-            border-radius: 2px;
+            border-radius: 0.2rem;
             animation: popUp 0.3s ease;
-            font-size:2vh;
+            width: 12rem;
+            font-size:0.8rem;
         }
         
         .mustard-box:hover .hover-text {
@@ -214,9 +229,9 @@
             flex-wrap: wrap;
             flex: 1;
             justify-content: center;
-            gap: 1vh;
-            padding: 1px;
             width: 40%;
+            gap: 0.8rem;
+            padding: 0.2rem;
         }
         .logo-item {
             position: relative;
@@ -234,12 +249,12 @@
             transform: translateX(-70%) translateY(-10%);
             background-color: rgba(0,0,0,0.8);
             color: white;
-            padding: 1px 1px;
-            border-radius: 1px;
+            border-radius: 0.2rem;
             opacity: 0;
             transition: opacity 0.4s ease;
-            font-size:1.7vh;
             z-index: 10;
+            font-size:1rem;
+            padding: 0 0;
         }
         .logo-item:hover {
             transform: scale(1.1);
@@ -282,7 +297,7 @@
 
     <div id="what_we_do" class="page otherpages"> 
         <div class = "othercontent">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <p>
             My work is by turns broad and focused. 
             <br>When I take a project, I go deep and dirty, having already carved niches in the following areas:
@@ -329,7 +344,7 @@
 
     <div id="how_we_work" class="page otherpages">
         <div class = "othercontent">
-            <h1>How we work</h1>
+            <h2>How we work</h2>
             <div class="main-container">
                 <div class="box-container">
                     <div class="mustard-box" onclick="showText(1)"><b>Discover</b></div>
