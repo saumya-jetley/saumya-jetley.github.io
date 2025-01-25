@@ -33,20 +33,20 @@
 
         .nav-links {
             display: flex;
-            max-width: 85%;
             align-items: center;
             justify-content: center;
-            column-gap: 4rem;
-            }
+            column-gap: 3.2rem;
+            overflow-x: auto; /* Allows horizontal scrolling if needed */
+            max-width: 100%; /* Ensures container doesn't exceed screen width */
+        }
         
         .nav-links a {
             color: #666;
             text-decoration: none;
             transition: color 0.3s;
             font-size: 1.2rem;
-            max-width: 100%;
-            display: block;
             text-align:center;
+            white-space: nowrap; /* Prevents text wrapping */
         }
         
         .nav-links a:hover {
@@ -56,14 +56,14 @@
         .page.homepage {
             min-height: 100vh;
             display: none; 
-            max-width: 100%;
+            max-width: 95%;
             margin: 0 auto;
         }
 
         .page.otherpages {
             min-height: 100vh;
             display: none;
-            max-width: 100%;
+            max-width: 95%;
             margin: 0 auto;
         }
 
