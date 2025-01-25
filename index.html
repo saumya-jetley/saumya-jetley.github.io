@@ -15,22 +15,20 @@
         
         nav {
             background-color: #faf6f6;
-            padding: 1em;
-            position: fixed;
+            padding: 0.4em;
+            position: relative;
             width: 100%;
-            top: 0;
             z-index: 100;
         }
 
         .logo-img {
-            position:absolute;
-            left:0.4em;
-            top:0.4em;
-            margin: 0 3em 3em 0;
+            vertical-align: middle;
+            position: relative;
         }
 
         .nav-links {
             display: flex;
+            max-width: 80%;
             justify-content: center;
             gap: 2em;
         }
@@ -38,8 +36,9 @@
         .nav-links a {
             color: #666;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5em 1em;
+            font-size: 1.3rem;
+            vertical-align: middle;
+            padding: 0.6em 0.2em 0 0.2rem;
             transition: color 0.3s;
         }
         
@@ -49,7 +48,7 @@
         
         .page.homepage {
             min-height: 100vh;
-            padding: 6em 2em 2em;
+            padding: 2em 2em 2em 15em;
             display: none;
             max-width: 100%;
             margin: 0 auto;
@@ -57,7 +56,7 @@
 
         .page.otherpages {
             min-height: 100vh;
-            padding: 6rem 2rem 2rem;
+            padding: 1.5rem 2rem 2rem 15em;
             display: none;
             max-width: 100%;
             margin: 0 auto;
@@ -69,10 +68,16 @@
             justify-content: space-between;
         }
         
-        .content {
+        .homecontent {
             flex: 1;
             max-width: 80%;
         }
+
+        .othercontent {
+            flex: 1;
+            max-width: 95%;
+        }   
+        
         
         .image-container {
             flex: 1;
@@ -116,13 +121,15 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: white;
-            padding: 0 0.5rem;
+            padding: 0 0.1rem;
             font-weight: bold;
+            width: 20rem;
+            text-align: center;
         }
 
         .main-container {
             display: flex;
-            width: 60rem;
+            width: 60%;
         }
         
         .box-container {
@@ -184,6 +191,7 @@
         }
         
         .text-container {
+            flex:1;
             width: 40rem;
             border: none; /* Removed border color */
             background-color: #f5e670; /* Added light background for visibility */
@@ -197,6 +205,7 @@
         .logo-container {
             display: flex;
             flex-wrap: wrap;
+            flex: 1;
             justify-content: center;
             gap: 3rem;
             padding: 1rem;
@@ -241,7 +250,7 @@
     <nav>
         <div class="nav-links">
             <!-- Only show logo on non-homepage pages -->
-            <div class="logo-img"><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="height: 3.5rem; display: none;"></div>
+            <a class="logo-img"><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="height: 3.5rem; visibility: hidden;"></a>
             <a href="#" onclick="showPage('who_we_are')">Who we are</a>
             <a href="#" onclick="showPage('what_we_do')">What we do</a>
             <a href="#" onclick="showPage('how_we_work')">How we work</a>
@@ -251,23 +260,23 @@
     </nav>
 
     <div id="who_we_are" class="page homepage active">
-        <div class="content">
+        <div class="homecontent">
             <h1>AdhyaAI</h1>  
             <h4> <i>from the union of <b>AI</b> with the <i>sanskrit</i> word<a> <img src="./images/text-1737546265310.png" height="25rem"></a><br></i></h4>
             <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in generative tools and techniques, to integrate AI within new and existing workflows.</p>
 
 <p>With over 10 years of expertise in <b>artificial intelligence, machine learning, and computer vision</b> my mission is simple: <b>to discover, design and embed AI reasoning and inference capabilities to power new-age frontier systems</b>.</p> 
 <p>I work on-ground with client teams to build <b>AI-first:User-first</b> products with prior contributions to sectors of HealthTech, EdTech, Insurance. I come with an added passion for AI leadership, education, and upskilling</p>
-
-            
         </div>
+        
         <div class="image-container">
             <img src="/api/placeholder/500/400" alt="AI Technology Illustration">
         </div>
+    
     </div>
 
-    <div id="what_we_do" class="page otherpages">
-        <div>            
+    <div id="what_we_do" class="page otherpages"> 
+        <div class = "othercontent">
             <h1>What we do</h1>
             <p>
             My work is by turns broad and focused. 
@@ -312,9 +321,10 @@
             </div>
         </div>
     </div>
+    
 
     <div id="how_we_work" class="page otherpages">
-        <div>
+        <div class = "othercontent">
             <h1>How we work</h1>
             <div class="main-container">
                 <div class="box-container">
@@ -343,7 +353,7 @@
     </div>
 
     <div id="and_with_whom" class="page otherpages">
-        <div class="and, with Whom">
+        <div class="othercontent">
             <h2> So far we've worked with,</h2>
             <div class="logo-container">
             <a href="https://plaksha.edu.in/ug/btech-degree/computer-science-and-artificial-intelligence" class="logo-item">
@@ -381,7 +391,7 @@
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
-            document.getElementById('adhyaai-logo').style.display = pageId !== 'who_we_are' ? 'block' : 'none';
+            document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';
         }
     </script>
 
