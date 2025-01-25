@@ -21,11 +21,6 @@
             z-index: 100;
         }
 
-        .logo-img {
-            vertical-align: top;
-            position: relative;
-        }
-
         .nav-links {
             display: flex;
             max-width: 80%;
@@ -45,7 +40,7 @@
         .nav-links a:hover {
             color: #333;
         }
-        
+
         .page.homepage {
             min-height: 100vh;
             display: none; 
@@ -69,7 +64,7 @@
         .homecontent {
             flex: 1;
             max-width: 80%;
-            padding: 1% 1% 1% 5%;
+            padding: 1% 1% 1% 7%;
             justify-content: center;
             align-items: center;
         }
@@ -77,7 +72,7 @@
         .othercontent {
             flex: 1;
             max-width: 95%;
-            padding: 1% 5% 1% 5%;
+            padding: 1% 2% 1% 7%;
             justify-content: center;
             align-items: center;
         }   
@@ -112,25 +107,29 @@
             vertical-align: middle;
         }
 
+        /* page what we do */
         .outer-container {
-            border: 0.4rem solid #333;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            width: 40rem;
+            border: 2px solid #333;
+            border-radius: 2px;
+            padding: 0.4%;
+            width: 55%;
             position: relative;
+            justify-content: center;
+            align-items: center;
         }
         .container-title {
             position: relative;
-            top: -2rem;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(-50%);
             background-color: white;
-            padding: 0 0.1rem;
+            padding: 1% 2% 1% 2%;
             font-weight: bold;
-            width: 20rem;
+            width: 20%;
             text-align: center;
         }
 
+        /* page how we do*/
+        
         .main-container {
             display: flex;
             width: 60%;
@@ -139,20 +138,33 @@
         .box-container {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            width: 4rem;
+            gap: 20px;
+            width: 15%;
+        }
+
+        .text-container {
+            flex:1;
+            width: 40%;
+            border: none; /* Removed border color */
+            background-color: #f5e670; /* Added light background for visibility */
+            border-radius: 2px;
+            padding: 2px;
+            margin-left: 2px;
+            font-family: 'arial', sans-serif;
+            font-size: 1.0rem;
         }
         
         .mustard-box {
             background-color: #f5e678;
-            padding: 0.5rem;
+            padding: 0.5px;
             display: inline-block;
             position: relative;
             cursor: pointer;
-            border-radius: 2rem;
-            margin-right: 2rem;
+            border-radius: 2px;
+            margin-right: 2px;
             transition: background-color 0.3s ease;
             font-size:1rem;
+            width: 100%;
         }
         
         .mustard-box:hover {
@@ -193,32 +205,21 @@
                 transform: translateY(0);
             }
         }
-        
-        .text-container {
-            flex:1;
-            width: 40rem;
-            border: none; /* Removed border color */
-            background-color: #f5e670; /* Added light background for visibility */
-            border-radius: 2rem;
-            padding: 2rem;
-            margin-left: 2rem;
-            font-family: 'arial', sans-serif;
-            font-size: 1.0rem;
-        }
+
+        /* and, with whom page */
 
         .logo-container {
             display: flex;
             flex-wrap: wrap;
             flex: 1;
             justify-content: center;
-            gap: 3rem;
-            padding: 1rem;
-            width: 40rem;
+            gap: 2%;
+            padding: 1px;
+            width: 40%;
         }
         .logo-item {
             position: relative;
-            width: 10rem;
-            height: 7rem;
+            width: 25%;
             transition: transform 0.3s ease;
         }
         .logo-item img {
@@ -227,14 +228,13 @@
             object-fit: contain;
         }
         .logo-hover-text {
-            position: absolute;
-            bottom: -2rem;
+            position: relative;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-70%) translateY(-10%);
             background-color: rgba(0,0,0,0.8);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.4rem;
+            padding: 1px 1px;
+            border-radius: 1px;
             opacity: 0;
             transition: opacity 0.4s ease;
             font-size:0.9rem;
@@ -254,7 +254,7 @@
     <nav>
         <div class="nav-links">
             <!-- Only show logo on non-homepage pages -->
-            <a class="logo-img"><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="height: 3.5rem; visibility: hidden;"></a>
+            <a><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="width: 60%; visibility: hidden; vertical-align:top"></a>
             <a href="#" onclick="showPage('who_we_are')">Who we are</a>
             <a href="#" onclick="showPage('what_we_do')">What we do</a>
             <a href="#" onclick="showPage('how_we_work')">How we work</a>
@@ -289,7 +289,7 @@
             <br>
             <div class="outer-container">
                 <div class="container-title">AI-centric</div>
-                    <div class="mustard-box">
+                    <div class="mustard-box" style="width: 30%;">
                         <a> <b>Startup Consulting</b></a>
                         <div class="hover-text">
                             <ul>
@@ -301,7 +301,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mustard-box">
+                    <div class="mustard-box" style="width: 30%;">
                         <a><b> Institution building</b></a>
                         <div class="hover-text">
                             <ul>
@@ -311,8 +311,7 @@
                             </ul>
                         </div>
                     </div>
-        
-                    <div class="mustard-box">
+                    <div class="mustard-box" style="width: 30%;">
                         <a> <b>Education and Upskilling</b></a>
                         <div class="hover-text">
                             <ul>
@@ -322,9 +321,9 @@
                             </ul>
                             </div>
                     </div>
-            </div>
         </div>
     </div>
+</div>
     
 
     <div id="how_we_work" class="page otherpages">
@@ -340,7 +339,7 @@
                 <div class="text-container" id="textDisplay"> 
                 <b>Discover</b>: Problem solving landscape is fast evolving. The journey of invention for businesses old and new starts with identifying new functionalities. The most valuable of these are the ones that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. We help businesses discover these features so the vision matches well the execution.
                 </div>
-                </div>
+            </div>
             <script>
                 function showText(boxNumber) {
                 const textDisplay = document.getElementById('textDisplay');
