@@ -55,8 +55,19 @@
         }
         
         .nav-links a:hover {
-            color: #333;
+            color: #141414;
         }
+
+        /* when being clicked */
+        .nav-links a:active {
+            color: #141414;
+        }
+        
+        /* after being clicked */
+        .nav-links a.active {
+            color: #141414;
+            font-weight: bold;
+            }
 
         .page.homepage {
             min-height: 100vh;
@@ -278,9 +289,9 @@
         <div class="nav-links">
             <!-- Only show logo on non-homepage pages -->
             <a><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="width: 7rem; visibility: hidden;"></a>
-            <a href="#" onclick="showPage('who_we_are')">Who we are</a>
-            <a href="#" onclick="showPage('what_we_do')">What we do</a>
-            <a href="#" onclick="showPage('how_we_work')">How we work</a>
+            <a href="#" onclick="showPage('who_we_are')" class="active">Who</a>
+            <a href="#" onclick="showPage('what_we_do')">What</a>
+            <a href="#" onclick="showPage('how_we_work')">How</a>
             <a href="#" onclick="showPage('and_with_whom')">and, with Whom</a>
         </div>
         
@@ -420,11 +431,21 @@
 
     <script>
         function showPage(pageId) {
+            /* for the page */
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+
+            /* for the nav-links*/
+            document.querySelectorAll('.nav-links a').forEach(navlink => {
+                navlink.classList.remove('active');
+            });
+            event.target.classList.add('active')
+            
+            /* for the logo */
             document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';
+            
         }
     </script>
 
