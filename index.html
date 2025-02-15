@@ -91,7 +91,7 @@
         
         .homecontent {
             flex: 1;
-            max-width: 80%;
+            width: 68%;
             justify-content: center;
             align-items: center;
             padding: 1% 1% 1% 7%;
@@ -108,6 +108,7 @@
         
         .image-container {
             flex: 1;
+            max-width: 30%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -281,6 +282,10 @@
         .logo-item:hover .logo-hover-text {
             opacity: 1;
         }
+
+        .logo-item:active {
+            cursor: pointer;
+        }
  
         
     </style>
@@ -315,7 +320,7 @@
         </div>
         
         <div class="image-container">
-            <img src="./images/main_page.jpeg" style="width:30rem" alt="AI Technology Illustration">
+            <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration">
         </div>
     
     </div>
@@ -401,7 +406,7 @@
         <div class="othercontent">
             <h2> So far we've worked with,</h2>
             <div class="logo-container">
-            <a href="https://plaksha.edu.in/ug/btech-degree/computer-science-and-artificial-intelligence" class="logo-item">
+            <a href="https://plaksha.edu.in/ug/btech-degree/computer-science-and-artificial-intelligence" id = "delayedLink" class="logo-item">
                 <img src="./images/plaksha_university.png" alt="Plaksha_University">
                 <div class="logo-hover-text">
                     AI/Tech Education & Research
@@ -412,7 +417,7 @@
                     </ul>
                 </div>
             </a>
-            <a href="https://plaksha.edu.in/pg/tech-leaders-fellowship" class="logo-item">
+            <a href="https://plaksha.edu.in/pg/tech-leaders-fellowship" id = "delayedLink" class="logo-item">
                 <img src="./images/plaksha_tlp.jpeg" alt="TLP">
                 <div class="logo-hover-text">
                     AI, DS & Tech leadership
@@ -423,7 +428,7 @@
                     </ul>
                 </div>
             </a>
-            <a href="https://vitt.ai/" class="logo-item">
+            <a href="https://vitt.ai/" id = "delayedLink" class="logo-item">
                 <img src="./images/vitt_ai.jpeg" alt="Vitt_AI">
                 <div class="logo-hover-text">
                     Speech AI for Insurance
@@ -433,7 +438,7 @@
                     </ul>
                 </div>
             </a>
-            <a href="https://www.vitally.health/" class="logo-item">
+            <a href="https://www.vitally.health/" id = "delayedLink" class="logo-item">
                 <img src="./images/vitally_health.jpeg" alt="Vitally_Health">
                 <div class="logo-hover-text">
                     Clinical & Molecular Diagnostics for Precision heart health
@@ -443,7 +448,7 @@
                     </ul>
                 </div>
             </a>
-            <a href="https://www.vascai.com/" class="logo-item">
+            <a href="https://www.vascai.com/" id = "delayedLink" class="logo-item">
                 <img src="./images/vascai.png" alt="VascAI">
                 <div class="logo-hover-text">
                     AI for Cardio-Vasc. Clinical & Patient Care 
@@ -461,6 +466,28 @@
         <hr className="border-t-2 border-gray-300 mb-6" />
         <p> <i>Join the list, give us a challenge; let's work together.<br>
             Reach out to me at:<span class="mustard-box"><a><b>sjetley@adhyaai.com</b></a></span></i></p>
+
+            <script>
+                const link = document.getElementById('delayedLink');
+                let timer;
+        
+                link.addEventListener('mouseenter', () => {
+                    timer = setTimeout(() => {
+                        link.classList.add('active');
+                    }, 2000); // 1 second delay
+                });
+        
+                link.addEventListener('mouseleave', () => {
+                    clearTimeout(timer);
+                    link.classList.remove('active');
+                });
+        
+                link.addEventListener('click', (e) => {
+                    if (!link.classList.contains('active')) {
+                        e.preventDefault();
+                    }
+                });
+            </script>
         </div>
     </div>
 
