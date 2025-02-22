@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdhyaAI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <style>
         :root {
            font-size: 16px; /* Base font size */
@@ -183,7 +184,7 @@
             width: 30%;
             gap: 1.5rem;
             padding: 0 0.2rem 0 0;
-            font-size:1.2rem;
+            font-size:2rem;
             font-family: 'courier', sans-serif;
         }
 
@@ -275,12 +276,12 @@
             width: 15rem;
             left: 30%;
             transform: translateX(-70%) translateY(-10%);
-            background-color: rgba(0,0,0,0.8);
-            color: white;
+            background-color:white;
+            color: black;
             border-radius: 0.2rem;
             opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 100;
+            transition: Opacity 0.4s ease;
+            z-index: 10;
             font-size:0.85rem;
             padding: 0 0;
         }
@@ -294,8 +295,87 @@
         .logo-item:active {
             cursor: pointer;
         }
-  
+
+        .curvypath-container {
+            position: relative;
+            width: 90%;
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .curvy-path {
+            position: relative;
+            width: 100%;
+            height: 30rem;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"%3E%3Cpath d="M0 30 Q40 10, 80 30 Q120 50, 160 30 Q200 10, 240 30 Q280 50, 320 30" stroke="black" fill="transparent" stroke-width="2"/%3E%3C/svg%3E') no-repeat center;
+            background-size: cover;
+        }
+        
+        /* Milestone Styling */
+        .milestone {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12rem;
+            height: 12rem;
+            background-color: #bd3859;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            text-align: center;
+            transform: translate(-50%, -50%); /* Center correctly */    
+        }
+        
+        /* Adjusted Positions for Bottom Alignment */
+        .milestone-1 { top: 20%; left: 5%; }
+        .milestone-2 { top: 15%; left: 27%; }
+        .milestone-3 { top: 40%; left: 50%; }
+        .milestone-4 { top: 30%; left: 70%; }
+        .milestone-5 { top: 20%; left: 90%; }
+
+
+        .slider-container {
+            width: 80%;
+            max-width: 90%;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 3rem 0;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 10%;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ff6f61;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #666;
+        }
+        
     </style>
+    
 </head>
 
 <body>
@@ -313,13 +393,12 @@
 
     <div id="who_we_are" class="page homepage active">
 
-        <div class="wrappercontent">
             
-            <div class="homecontent">
+        <div class="homecontent">
                 <h1>AdhyaAI</h1>  
                 <a> [ from the union of <b>AI</b> with the <i>sanskrit</i> word 
                     <img src="./images/text-1737546265310.png" style="width:6rem"> ]</a><br>
-                <p style="font-size: 1.2rem; color:grey"> 
+                <p style="font-size: 1.2rem;"> 
                 With over 10 years of experience in research and applied <b>AI, ML, and Computer Vision</b> my mission at AdhyaAI is simple: 
                 <a>to help discover, design and build AI solutions that power new-age frontier systems.</a></p> 
     
@@ -330,30 +409,19 @@
                 
                 <br> <br> <br>
         
-                <div style="display: flex; align-items: center; width: 100%; margin: 20px 0;">
-                  <!-- Left line -->
-                  <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
-                  
-                  <!-- Dots -->
-                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-                  
-                  <!-- Right line -->
-                  <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
-                </div>
-    
+                
     
                 <div>
                     <br>
-                    <p><b>The origin story:</b> Given my <a href="saumya-jetley-legacy-github-io/index.html">scientific background</a>, 
+                    <p style="color:grey">
+                        <b>...the origin story</b><br> Given my <a href="saumya-jetley-legacy-github-io/index.html">scientific background</a>, 
                         it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
                         rising number of startups. To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
                         the punctual 'expertise and strategy' needs of startups.</p>
-            	        <p>A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
-                            for its product and data strategy in its formative period.
-            	        </p>
-                        <p>
+                        
+            	        <p style="color:grey">A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
+                            for its product and data strategy in its formative period.</p>
+                        <p style="color:grey">
             	        This is where I come in: <a style="color:grey"> working closely with founding teams, where I get to don different 
                             hats going from user understanding, market research to product design, co-architecting AI systems that align 
                             data and product strategy, building them to learn and scale, defining data governance guidelines, and navigating 
@@ -366,16 +434,39 @@
                 <br><br><br>
             
             </div>
-                 
-            <div class="image-container">
+                     
+                
+        <div>
+            <p> Here's a snapshot of my professional journey:</p>
+            <br><br>
+        </div>
+
+        <div class="curvypath-container">
+                <!-- Curvy Path -->
+                <div class="curvy-path">
+                <!-- Career Milestones -->
+                <div class="milestone milestone-1"><a><b style="font-size:1rem">Computer vision engineer</b> 
+                    <br>(Indian language document analysis,  Member of Indian OCR Consortium)</a></div>
+                <div class="milestone milestone-2"><a><b style="font-size:1rem">CV & ML Research</b> <br> (DPhil - Oxford Uni,
+                    Realtime video segmentation, attention & adversariality in CNNs)</a></div>
+                <div class="milestone milestone-3"><a><b style="font-size:1rem">Applied ML</b> <br>
+                    (Privacy-preserving ML, causal inference, recommendation systems</a></div>
+                <div class="milestone milestone-4"><a><b style="font-size:1rem">Program Manager</b> 
+                    <br>(Data science & AI leadership for early-career professionals)</a></div>
+                <div class="milestone milestone-5"><a><b style="font-size:1rem">Cross-functional PM 
+                </b> <br>@ AI-first startups</a></div>
+                </div>
+        </div>
+
+        <div>
+            <p> So...</p>
+            <br>
+        </div>
+
+        <div class="image-container">
                 <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration">
             </div>
-                
-        </div>
         
-        <div class="image-container">
-            <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration">
-        </div>
         
         <br><br><br>
 
@@ -431,7 +522,9 @@
     
 
     <div id="how_we_work" class="page otherpages">
+        
         <div class = "othercontent">
+            
             <div class="main-container">
                 <div class="box-container">
                     <div class="mustard-box" onclick="showText(1)"><b>Discover</b></div>
@@ -457,10 +550,87 @@
                 textDisplay.innerHTML = texts[boxNumber];
                 }
             </script>
+        <br><br><br><br>
+        <div>
+            <p> Skills/tools I regularly use at my job:</p>
         </div>
+            
+        <br><br>
+        <div class="slider-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">⭐</div>
+                        <div class="card-title">Confluence</div>
+                        </div>
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">⭐</div>
+                        <div class="card-title">Trello</div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-title">Jira</div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">AWS, Lambda functions</div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">Python, Pytorch</div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">Statistical analysis, Data visualisation</div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🧩</div>
+                        <div class="card-title">HTML, CSS</div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="swiper-slide">
+                        <div class="card-icon">🧩</div>
+                        <div class="card-title">Figma</div>
+                    </div>
+                </div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
     </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".swiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+        </script>
 
+    </div>
+
+</div>
     
     <div id="and_with_whom" class="page otherpages">
         <div class="othercontent">
@@ -534,7 +704,7 @@
                 link.addEventListener('mouseenter', () => {
                     timer = setTimeout(() => {
                         link.classList.add('active');
-                    }, 2000); // 1 second delay
+                    }, 3000); // 1 second delay
                 });
         
                 link.addEventListener('mouseleave', () => {
