@@ -71,7 +71,7 @@
 
         .page.homepage {
             min-height: 100vh;
-            display: none; 
+            display: none;
             max-width: 95%;
             margin: 0 auto;
         }
@@ -85,8 +85,14 @@
 
         .page.active {
             display: flex;
-            align-items: flex-star;
+            flex-direction: column;
+            align-items: center;
             justify-content: space-between;
+        }
+
+        .wrappercontent {
+            display: flex;
+            flex-direction: row;
         }
         
         .homecontent {
@@ -104,7 +110,6 @@
             align-items: center;
             padding: 1% 2% 1% 7%;
         }   
-        
         
         .image-container {
             flex: 1;
@@ -289,10 +294,10 @@
         .logo-item:active {
             cursor: pointer;
         }
-
-       
+  
     </style>
 </head>
+
 <body>
     <nav>
         <div class="nav-links">
@@ -307,55 +312,80 @@
     </nav>
 
     <div id="who_we_are" class="page homepage active">
-        <div class="homecontent">
-            <h1>AdhyaAI</h1>  
-            <p>from the union of <b>AI</b> with the <i>sanskrit</i> word<a> <img src="./images/text-1737546265310.png" style="width:6rem"></a><br></p>
-            <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in generative tools and techniques, to integrate AI within new and existing workflows.</p>
-<br> <br> <br>
-    
-            <div style="display: flex; align-items: center; width: 100%; margin: 20px 0;">
-              <!-- Left line -->
-              <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
-              
-              <!-- Dots -->
-              <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-              <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-              <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
-              
-              <!-- Right line -->
-              <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
-            </div>
 
-
-            <div>
-                <br>
-                <p><b>The origin story:</b> Given my <a href="saumya-jetley-legacy-github-io/index.html">scientific background</a>, it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a rising number of startups. To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address the punctual 'expertise and strategy' needs of startups.</p>
-        	        <p>A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance for its product and data strategy in its formative period.
-        	        </p>
-                    <p>
-        	        This is where I come in: working closely with founding teams, helping them navigate the complex space of AI modelling, co-architecting AI systems that can learn and scale, defining data governance guidelines, identifying datasets or ways to build dataset for in-house solutions. I help startup teams design and develop a robust data, AI and tech stack adapted to the startup vision and runway.
-                    </p>
-            </div>
+        <div class="wrappercontent">
             
-        <br><br><br><br><br><br>
+            <div class="homecontent">
+                <h1>AdhyaAI</h1>  
+                <a> [ from the union of <b>AI</b> with the <i>sanskrit</i> word 
+                    <img src="./images/text-1737546265310.png" style="width:6rem"> ]</a><br>
+                <p style="font-size: 1.2rem; color:grey"> 
+                With over 10 years of experience in research and applied <b>AI, ML, and Computer Vision</b> my mission at AdhyaAI is simple: 
+                <a>to help discover, design and build AI solutions that power new-age frontier systems.</a></p> 
+    
+                <!--
+                <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in 
+                generative tools and techniques, to integrate AI within new and existing workflows.</p>
+                -->
+                
+                <br> <br> <br>
+        
+                <div style="display: flex; align-items: center; width: 100%; margin: 20px 0;">
+                  <!-- Left line -->
+                  <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
+                  
+                  <!-- Dots -->
+                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
+                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
+                  <span style="display: inline-block; width: 6px; height: 6px; background-color: #111111; border-radius: 50%; margin: 0 8px;"></span>
+                  
+                  <!-- Right line -->
+                  <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;">
+                </div>
+    
+    
+                <div>
+                    <br>
+                    <p><b>The origin story:</b> Given my <a href="saumya-jetley-legacy-github-io/index.html">scientific background</a>, 
+                        it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
+                        rising number of startups. To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
+                        the punctual 'expertise and strategy' needs of startups.</p>
+            	        <p>A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
+                            for its product and data strategy in its formative period.
+            	        </p>
+                        <p>
+            	        This is where I come in: <a style="color:grey"> working closely with founding teams, where I get to don different 
+                            hats going from user understanding, market research to product design, co-architecting AI systems that align 
+                            data and product strategy, building them to learn and scale, defining data governance guidelines, and navigating 
+                            the solution space of AI models, </a> In short, I love action, challenges and the thrill of working in startups 
+                            to design and develop robust data and AI stacks adapted to the startup vision and runway.
+                        </p>
+                </div>
+                
+                <br><br><br>
+                <br><br><br>
+            
+            </div>
+                 
+            <div class="image-container">
+                <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration">
+            </div>
+                
         </div>
         
-        
-         
         <div class="image-container">
             <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration">
         </div>
-    
+        
+        <br><br><br>
+
+        
     </div>
 
+
+        
     <div id="what_we_do" class="page otherpages"> 
         <div class = "othercontent">
-            <p>
-            With over 10 years of research and applied experience in <b>AI, ML, and Computer Vision</b> my mission is simple: 
-            <br>
-            <br>
-            <p style="font-size: 1.2rem; color:grey">{To help discover, design and build AI technology solutions that power new-age frontier systems}</p> 
-            <br>
             <br>
             <p>I work across functionalities - from user understanding, AI workflow design, product and data roadmapping, 
                 to building, deployment and validation of AI models - specialising in <b>AI-first:User-first</b> products
@@ -430,6 +460,8 @@
         </div>
     </div>
 
+
+    
     <div id="and_with_whom" class="page otherpages">
         <div class="othercontent">
             <h2> So far we've worked with,</h2>
@@ -519,6 +551,7 @@
         </div>
     </div>
 
+    
     <script>
         function showPage(pageId) {
             /* for the page */
