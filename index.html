@@ -702,17 +702,20 @@
             <script>
                 let timer;
                 link_ids = ['delayedLink1', 'delayedLink2','delayedLink3','delayedLink4', 'delayedLink5']
-                link_ids.forEach(id ==> {
+                link_ids.forEach(id => {
                     const link = document.getElementById(id);
-                    link.addEventListener('click', (e) => {
-                    if (!link.classList.contains('active')) {
-                        e.preventDefault();
-                    
-                        timer = setTimeout(() => {
-                            link.classList.add('active');
-                        }, 1000);// 1 second delay
-                   }
-                });  
+                    if (link) {
+                        link.addEventListener('click', (e) => {
+                        if (!link.classList.contains('active')) {
+                            e.preventDefault();
+                        
+                            timer = setTimeout(() => {
+                                link.classList.add('active');
+                            }, 1000);// 1 second delay
+                       }
+                    });
+                    }
+                });
                 
                 /*
                 link.addEventListener('mouseenter', () => {
