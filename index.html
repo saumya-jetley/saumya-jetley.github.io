@@ -405,11 +405,11 @@
                 <br> <br> <br>
         
                 
-    
                 <div>
                     <br>
                     <p style="color:dimgrey">
-                        <b>...the origin story</b><br> Given <a href="saumya-jetley-legacy-github-io/index.html"> my scientific background</a>, 
+                        <b>...the origin story</b><br> Given <a href="saumya-jetley-legacy-github-io/index.html"  onclick="changeURL(event)">
+                            my scientific background</a>, 
                         it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
                         rising number of startups. To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
                         the punctual 'expertise and strategy' needs of startups.</p>
@@ -750,6 +750,20 @@
             document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';
             
         }
+    </script>
+
+    <script>
+    function changeURL(event) {
+        event.preventDefault();
+        // Load the content
+        fetch('saumya-jetley-legacy-github-io/index.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.innerHTML = data;
+                // Change the URL without reloading
+                history.pushState({}, '', '/saumya-jetley');
+            });
+    }
     </script>
 
 </body>
