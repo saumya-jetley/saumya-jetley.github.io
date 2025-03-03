@@ -6,74 +6,171 @@
     <title>AdhyaAI</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <style>
-        :root {
-           font-size: 20px; /* Base font size */
-        }
-
-        @media screen and (max-width: 768px) {
-            :root {
-                font-size: 12px; /* Smaller for mobile */
-            }
+        * {
+            box-sizing: border-box;
         }
         
         body {
             margin: 0;
             padding: 0;
-            font-family: 'helvetica neue';
-            background-color: #f5e678;
+            font-family: 'Segoe UI';
+            background-color: #FFFAE0; /* Soft pale yellow */
+            background-image: linear-gradient(135deg, #FFF8D6 25%, transparent 25%),
+                            linear-gradient(225deg, #FFF8D6 25%, transparent 25%),
+                            linear-gradient(45deg, #FFF8D6 25%, transparent 25%),
+                            linear-gradient(315deg, #FFF8D6 25%, transparent 25%);
+            background-position: 40px 0, 40px 0, 0 0, 0 0;
+            background-size: 80px 80px;
+            background-repeat: repeat;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 2rem;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        :root {
+           font-size: 26px; /* Base font size */
+        }
+
+        /* Small devices (phones) */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            :root {
+                font-size: 18px;
+            }
+        }
+        
+        /* Medium devices (tablets) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            :root {
+                font-size: 18px;
+            }
+        }
+        
+        /* Large devices (desktops) */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        
+        /* Extra large devices */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        
+        .header {
+            background-color: #FFDE59; /* Brighter yellow */
+            background-image: radial-gradient(circle at 50% 50%, #FFE77A 10%, transparent 50%);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav li {
+            margin: 0 3.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFDE59;
+        }
+
+        
+        .content-section {
+            padding: 2.5rem 0;
+        }
+        
+        .content-panel {
+            background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+            border-left: 4px solid #FFD000; /* Golden yellow accent */
+            border-top: 4px solid #FFD000; /* Golden yellow accent */
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-panel h3 {
+            margin-top: 0;
             color: #333;
         }
-        
-        nav {
-            background-color: #faf6f6;
-            padding: 0.2em;
-            position: relative;
-            width: 100%;
-            z-index: 100;
-        }
 
-        .nav-links {
+        .features {
             display: flex;
-            flex:1;
-            align-items: center;
-            justify-content: center;
-            width: 75rem;
-            max-width: 95%; /* Ensures container doesn't exceed screen width */
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
         }
 
-        #adhyaai-logo{
-            margin:0
-        }
-        
-        .nav-links a {
-            flex:1;
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1.4rem;
+        .feature-box {
+            flex-basis: calc(33.333% - 20px);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-top: 3px solid #FFD000;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
-            margin: 0.6rem
-        }
-        
-        .nav-links a:hover {
-            color: #141414;
         }
 
-        /* when being clicked */
-        .nav-links a:active {
-            color: #141414;
+        .cta {
+            background-color: #FFDE59;
+            padding: 3rem 0;
+            width:100%;
+            text-align: center;
+            margin: 4rem 0;
         }
-        
-        /* after being clicked */
-        .nav-links a.active {
-            color: #141414;
-            font-weight: bold;
-            }
 
+
+        /* changed until here */
+        
         .page.homepage {
-            min-height: 100vh;
             display: none;
-            max-width: 95%;
             margin: 0 auto;
         }
 
@@ -95,22 +192,15 @@
             display: flex;
             flex-direction: row;
         }
-        
-        .homecontent {
-            flex: 1;
-            width: 64%;
-            justify-content: center;
-            align-items: center;
-            padding: 1% 1% 1% 7%;
-        }
 
-        .othercontent {
+        /*.othercontent {
             flex: 1;
             width: 95%;
             justify-content: center;
             align-items: center;
             padding: 1% 2% 1% 7%;
-        }   
+        } 
+        */
         
         .image-container {
             flex: 1;
@@ -133,8 +223,8 @@
         }
         
         p {
-            font-size: 1.1rem;
-            line-height: 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
             margin-bottom: 0.2rem;
         }
 
@@ -149,15 +239,21 @@
             vertical-align: middle;
         }
 
+        mark {
+            background-color: #FFDE59;
+            color: grey;
+        }
+
         /* page what we do */
         .outer-container {
             border: 0.1rem solid #333;
             border-radius: 0.1rem;
-            padding: 0.2rem;
-            width: 90%;
             position: relative;
             justify-content: center;
             align-items: center;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         .container-title {
             position: relative;
@@ -165,7 +261,7 @@
             transform: translateX(-50%) translateY(-60%);
             background-color: white;
             font-weight: bold;
-            width: 20%;
+            width: 30%;
             text-align: center;
             padding: 0.1rem 0.2rem 0.1rem 0.2rem;
             
@@ -181,27 +277,27 @@
         .box-container {
             display: flex;
             flex-direction: column;
-            width: 30%;
+            width: 20%;
             gap: 1.5rem;
             padding: 0 0.2rem 0 0;
             font-size:2rem;
-            font-family: 'helvetica neue';
+            font-family: 'Segoe UI';
         }
 
         .text-container {
             flex:1;
-            width: 70%;
+            width: 80%;
             border: none; /* Removed border color */
-            background-color: #f5e670; /* Added light background for visibility */
+            background-color: #FFDE59; /* Added light background for visibility */
             border-radius: 0.2rem;
             padding: 0.2rem;
             margin-left: 0.2rem;
-            font-family: 'helvetica neue';
+            font-family: 'Segoe UI';
             font-size: 1.2rem;
         }
         
         .mustard-box {
-            background-color: #f5e678;
+            background-color: #FFDE59;
             display: inline-block;
             position: relative;
             cursor: pointer;
@@ -214,7 +310,7 @@
         }
         
         .mustard-box:hover {
-            background-color: #FFC107; /* Darker mustard color on hover */
+            background-color: #FFDE59; /* Darker mustard color on hover */
         }
         
         .hover-text {
@@ -222,7 +318,7 @@
             position: absolute;
             top: 100%;
             background-color: white;
-            border: 0.2rem solid #f5e678;
+            border: 0.2rem solid #FFDE59;
             padding: 0.2rem;
             box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.2);
             z-index: 10;
@@ -237,7 +333,7 @@
         }
 
         mustard-box:active, .mustard-box.active {
-            background-color: #FF9800;
+            background-color: #FFDE59;
         }
         
         @keyframes popUp {
@@ -258,7 +354,7 @@
             flex-wrap: wrap;
             flex: 1;
             justify-content: center;
-            width: 70%;
+            width: 90%;
             column-gap: 3rem; /* Horizontal spacing */
         }
         .logo-item {
@@ -298,19 +394,20 @@
 
         .curvypath-container {
             position: relative;
-            width: 90%;
-            max-width: 90%;
-            display: flex;
+            width: 95%;
+            max-width: 95%;
             justify-content: center;
             align-items: center;
+            padding: 3.5rem 0;
         }
         
         .curvy-path {
             position: relative;
             width: 100%;
-            height: 30rem;
+            height: 20rem;
             background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"%3E%3Cpath d="M0 30 Q40 10, 80 30 Q120 50, 160 30 Q200 10, 240 30 Q280 50, 320 30" stroke="black" fill="transparent" stroke-width="2"/%3E%3C/svg%3E') no-repeat center;
             background-size: cover;
+            align-items: center;
         }
         
         /* Milestone Styling */
@@ -331,10 +428,10 @@
         
         /* Adjusted Positions for Bottom Alignment */
         .milestone-1 { top: 20%; left: 5%; width: 9rem; height: 9rem; }
-        .milestone-2 { top: 15%; left: 27%; width: 11rem; height: 11rem;}
-        .milestone-3 { top: 40%; left: 50%; width: 11rem; height: 11rem;}
-        .milestone-4 { top: 30%; left: 70%; width: 9rem; height: 9rem;}
-        .milestone-5 { top: 20%; left: 90%; width: 9rem; height: 9rem;}
+        .milestone-2 { top: 15%; left: 27%; width: 9rem; height: 9rem;}
+        .milestone-3 { top: 40%; left: 50%; width: 10rem; height: 10rem;}
+        .milestone-4 { top: 30%; left: 72%; width: 11rem; height: 11rem;}
+        .milestone-5 { top: 20%; left: 95%; width: 9rem; height: 9rem;}
 
 
         .slider-container {
@@ -368,131 +465,272 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
+
+
+            /* Values Section */
+    .values-section {
+        padding: 3rem 0;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 2rem 0;
+    }
+    
+    .values-header {
+        margin-bottom: 30px;
+    }
+    
+    .values-header h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .values-header p {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        font-weight: 500;
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    @media (min-width: 768px) {
+        .values-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    
+    .value-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .value-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .value-number {
+        background-color: #FFD000;
+        color: #333;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .value-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .value-card p {
+        margin: 0;
+        color: #555;
+        font-size: 0.95rem;
+    }
+    
+    /* For mobile devices */
+    @media (max-width: 767px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
         
+        .value-number {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .value-title {
+            font-size: 1.1rem;
+        }
+    }
     </style>
     
 </head>
 
 <body>
-    <nav>
-        <div class="nav-links">
-            <!-- Only show logo on non-homepage pages -->
-            <a><img id="adhyaai-logo" src="./images/adhyaai.png" alt="AdhyaAI" style="width: 7rem; visibility: hidden;"></a>
-            <a href="#" onclick="showPage('who_we_are')" class="active">Who</a>
-            <a href="#" onclick="showPage('what_we_do')">What</a>
-            <a href="#" onclick="showPage('how_we_work')">How</a>
-            <a href="#" onclick="showPage('and_with_whom')">and, with Whom</a>
+    
+    <header class="header">
+        <div class="container">
+            <h1>AdhyaAI</h1>
+            <p>Discovering, designing & building AI solutions for global tech startups</p>
         </div>
-        
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#" onclick="showPage('who_we_are')" class="active">Who</a></li>
+                <li><a href="#" onclick="showPage('what_we_do')">What</a></li>
+                <li><a href="#" onclick="showPage('how_we_work')">How</a></li>
+                <li><a href="#" onclick="showPage('and_with_whom')">and, with Whom</a></li>
+            </ul>
+        </div>
     </nav>
 
     <div id="who_we_are" class="page homepage active">
+       
+        <section class="content-section"> <!-- form (top margin) -->    
+            <div class="container"> <!-- form (width) -->
+                <div class="content-panel"> <!-- look -->
+                    <h2 style="text-align:center"><b>AdhyaAI</b> (from the union of <b>AI</b> with the <i>sanskrit</i> word 
+                        <img src="./images/text-1737546265310.png" style="width:7rem">) is a single-person AI/ML consulting force founded to address the punctual 'expertise and strategy' needs of AI startups today.</h2>
+                </div>
+            </div>
+        </section>
 
+            <!--
+            <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in 
+            generative tools and techniques, to integrate AI within new and existing workflows.</p>
+            -->
+        
+            <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="values-header">
+                    <p style="text-align:justify">With a DPhil from Oxford University, 
+                    and over 10 years of Research & Applied AI (ML & Computer Vision) experience gained from working in bleeding-edge AI ecosystems across 
+                    continents and sectors my mission at AdhyaAI is simple:
+                    <i>"to help bring that frontier MVP to life"</i></p>
+                </div>
+                <div class="values-header">
+                    <h2>Pillars of Work</h2>
+                    <p> I work across functionalities to deliver holistic on-ground value </p>
+                </div>
             
-        <div class="homecontent">
-                <h1>AdhyaAI</h1>  
-                <a> [ from the union of <b>AI</b> with the <i>sanskrit</i> word 
-                    <img src="./images/text-1737546265310.png" style="width:6rem"> ]</a><br>
-                <p style="font-size: 1.2rem;">
-                With over 10 years of experience in <b>Research & Applied AI, ML, Computer Vision</b> my mission at AdhyaAI is simple: 
-                <a>to help discover, design and build AI solutions that power new-age frontier systems.</a></p> 
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-number">01</div>
+                    <h3 class="value-title">Market Research</h3>
+                    <p>Understanding competition, tech advantage, tech niche</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-number">02</div>
+                    <h3 class="value-title">User/Domain Understanding</h3>
+                    <p>Characterising user-tech relation, structuring domain knowledge for digital use</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-number">03</div>
+                    <h3 class="value-title">Product design</h3>
+                    <p>Product roadmapping and feature prioritisation</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-number">04</div>
+                    <h3 class="value-title">Data strategy</h3>
+                    <p>Data bootstrapping through early features, identification/creation of data banks</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-number">05</div>
+                    <h3 class="value-title">AI Modelling</h3>
+                    <p>AI/tech discernment for methodical modelling and benchmarking</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
-                <!--
-                <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in 
-                generative tools and techniques, to integrate AI within new and existing workflows.</p>
-                -->
-                
-                <br> <br> <br>
         
+        <section class="cta">
+            <div class="container">
                 
-                <div>
-                    <br>
-                        <p style="font-size: 1.2rem;">
-                        <b>...the origin story</b><br> Given <a href="./Saumya-Jetley/profile.html">my scientific background</a>, 
+                    <h2 style="color:#555"><b>The origin story</b>...</h2> 
+                    <h3 style="color:#555; text-align: justify">
+                        Given <a href="./Saumya-Jetley/profile.html"><mark>my scientific background</mark></a>, 
                         it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
-                        rising number of startups. To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
-                        the punctual 'expertise and strategy' needs of startups.</p>
+                        rising number of startups.
+                        To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
+                        the punctual 'expertise and strategy' needs of startups.</h3>
+                    <h3 style="color:#555; text-align: justify">
+                        A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
+                        for its product and data strategy in its formative period.
+        
+                        I work across functionalities to co-architect AI solutions that align data and product strategy,
+                        helping build and deploy cutting-edge AI models that are customised, robust, and scalable.</h3>
+
+                    <h3 style="color:#555; text-align: justify"> Here's a snapshot of my professional journey: </h3>
+                
+        
+                    <div class="curvypath-container">
+                            <!-- Curvy Path -->
+                            <div class="curvy-path">
+                            <!-- Career Milestones -->
+                                <div class="milestone milestone-1"><a><b style="font-size:1rem">C-DAC
+                                </b><br>(centre that built India's first supercomputer)</a></div>
+                                <div class="milestone milestone-2"><a><b style="font-size:1rem">DPhil, Oxford University</b></a></div>
+                                <div class="milestone milestone-3"><a><b style="font-size:1rem">AI in<br>Industry & Startups</b>
+                                    <br> (XRCE, Five AI, INRIA)<br></a></div>
+                                <div class="milestone milestone-4"><a><b style="font-size:0.9rem">Founding-faculty & Associate Director, Plaksha</b> 
+                                    <br>India's fast-growing tech university</a></div>
+                                <div class="milestone milestone-5"><a><b style="font-size:1rem">AI Product Building 
+                                </b> <br>@ Global tech startups</a></div>
+                            </div>
+                    </div>
+            </div>
+        </section>
+
+
+        <section class="values-section" style="border-bottom: 4px solid #FFD000; /* Golden yellow accent */
+            border-right: 4px solid #FFD000; /* Golden yellow accent */">
+            <div class="container">
+                <div class="values-header">
+                    <div class="values-grid" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="value-card" >
+                            <h3>At AdhyaAI, I build on an in-depth study of AI (<i>Adhyayan</i>), from first principles to the latest in 
+                                generative tools and techniques, to integrate AI within new and existing workflows.</h2>
+                            <h3>
+                                <mark><a onclick="showPage('and_with_whom')">Click</a></mark>
+                                here to see the companies I've partnered with till date.</h3>
+                        </div>
                         
-            	        <p>A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
-                            for its product and data strategy in its formative period.</p>
-            	        <p>This is where I come in: working closely with founding teams, where I get to don different 
-                            hats going from user understanding, market research to product design, co-architecting AI systems that align 
-                            data and product strategy, building them to learn and scale, defining data governance guidelines, and navigating 
-                            the solution space of AI models. In short, I love challenges and the thrill of working in startups 
-                            to design and develop robust data and AI stacks adapted to the startup vision and runway.</p>
-                    
-                </div>
-                
-                <br><br><br>
-                <br><br><br>
+                        <div class="value-card">
+                            <img src="./images/main_page.jpeg" style="width: 20rem" alt="AI Technology Illustration"></p>
+                        </div>
             
+                    </div>
+                   
+                        
+                    <hr className="border-t-2 border-gray-300 mb-6" />
+                    <div>
+                        <p> Got an interesting challenge? Write to me at:<span class="mustard-box"><a><b>sjetley@adhyaai.com</b></a></span></p>
+                    </div> 
             </div>
-                     
-                
-        <div>
-            <p> Here's a snapshot of my professional journey:</p>
-            <br><br>
         </div>
-
-        <div class="curvypath-container">
-                <!-- Curvy Path -->
-                <div class="curvy-path">
-                <!-- Career Milestones -->
-                <div class="milestone milestone-1"><a><b style="font-size:1rem">Computer vision engineer</b> 
-                    <br>(Indian language document analysis,  Member of Indian OCR Consortium)</a></div>
-                <div class="milestone milestone-2"><a><b style="font-size:1rem">CV & ML Research, <br> DPhil @ Oxford Uni. </b> 
-                    <br>(Realtime video segmentation, attention models, <br> adversariality in CNNs)</a></div>
-                <div class="milestone milestone-3"><a><b style="font-size:0.9rem">Applied CV/ML, <br> XRCE 
-                    | Five AI | INRIA <br></b>
-                    <br>(Saliency and Safety models , <br> Privacy-preserving ML, <br>causal inference</a></div>
-                <div class="milestone milestone-4"><a><b style="font-size:1rem">Tech Program Manager</b> 
-                    <br>(Data science & AI leadership for early-career professionals)</a></div>
-                <div class="milestone milestone-5"><a><b style="font-size:1rem">AI Product Officer 
-                </b> <br>@ Global tech startups</a></div>
-                </div>
-        </div>
-
-        <div class="image-container">
-                <p> So...<br><br>
-                <img src="./images/main_page.jpeg" style="width: 25rem" alt="AI Technology Illustration"></p>
-            </div>
-        
-        <br><br>
-
-        <div>
-        <!--
-        <p> Want to know a little bit more about me?<br>
-            Here's some of the things people I've worked with have said:
-            <i>...full of energy</i>, <i>a team player</i>, <br>
-            <i>Saumya makes sure that everyone is taken along...</i>, <i>great at communication</i>
-        </p>
-        <br><br>
-        -->
-            <hr className="border-t-2 border-gray-300 mb-6" />
-            <p> To know about my work and potential collaborations, reach out to me at:<span class="mustard-box"><a><b>sjetley@adhyaai.com</b></a></span></p>
-        </div>
-            
-        
-        <br><br><br><br>
-
-        
-    </div>
-
+        </section>
+</div>
 
         
     <div id="what_we_do" class="page otherpages"> 
-        <div class = "othercontent">
-            <br>
-            <p>I work across functionalities - from user understanding, AI workflow design, product and data roadmapping, 
-                to building, validation and deployment of AI models - specialising in <b>AI-first:User-first</b> products.</p>
-            
-            <p>I have previously tackled projects in HealthTech, EdTech, Insurance and 
-                come with an added passion for AI leadership, education, and upskilling.</p>
-            <br>
-            <br>
+
+        <section class="content-section"> <!-- form (top margin) -->    
+            <div class="container"> <!-- form (width) -->
+                <div class="content-panel"> <!-- look -->
+        
+                    <p>I specialise in <b>AI-first:User-first</b> products, having previously tackled projects in HealthTech, EdTech, Insurance and 
+                    come with an added passion for AI leadership, education, and upskilling.</p>
+                </div>
+            </div>
+        
             <div class="outer-container">
-                <div class="container-title">AI-centric</div>
-                    <div class="mustard-box" style="width: 30%;">
+                <div class="container-title">AI-centric focus areas</div>
+                    <div class="mustard-box" style="width: 32%; text-align:center">
                         <a> <b>Startup Consulting</b></a>
                         <div class="hover-text">
                             <ul>
@@ -502,7 +740,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mustard-box" style="width: 30%;">
+                    <div class="mustard-box" style="width: 32%;text-align:center">
                         <a><b> Institution building</b></a>
                         <div class="hover-text">
                             <ul>
@@ -512,7 +750,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mustard-box" style="width: 30%;">
+                    <div class="mustard-box" style="width: 32%;text-align:center">
                         <a> <b>Education and Upskilling</b></a>
                         <div class="hover-text">
                             <ul>
@@ -523,27 +761,32 @@
                             </div>
                     </div>
         </div>
-    </div>
+    </section>
 </div>
     
 
     <div id="how_we_work" class="page otherpages">
-        
-        <div class = "othercontent">
-            
-            <div class="main-container">
-                <div class="box-container">
-                    <div class="mustard-box" onclick="showText(1)"><b>Discover</b></div>
-                    <div class="mustard-box" onclick="showText(2)"><b>Design</b></div>
-                    <div class="mustard-box" onclick="showText(3)"><b>Develop</b></div>
-                    <div class="mustard-box" onclick="showText(4)"><b>Deliver</b></div>
-                </div>
-                <div class="text-container" id="textDisplay"> 
-                <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
-                    <br><br>
-                    We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
+
+         <section class="content-section"> <!-- form (top margin) -->    
+            <div class="container"> <!-- form (width) -->
+                <div class="content-panel"> <!-- look -->
+       
+                <div class="main-container">
+                        <div class="box-container">
+                            <div class="mustard-box" onclick="showText(1)"><b>Discover</b></div>
+                            <div class="mustard-box" onclick="showText(2)"><b>Design</b></div>
+                            <div class="mustard-box" onclick="showText(3)"><b>Develop</b></div>
+                            <div class="mustard-box" onclick="showText(4)"><b>Deliver</b></div>
+                        </div>
+                        <div class="text-container" id="textDisplay"> 
+                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
+                            <br><br>
+                            We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
+                        </div>
                 </div>
             </div>
+            </div>
+        </section>
             <script>
                 function showText(boxNumber) {
                 const textDisplay = document.getElementById('textDisplay');
@@ -556,53 +799,42 @@
                 textDisplay.innerHTML = texts[boxNumber];
                 }
             </script>
-        <br><br><br><br>
-        <div>
-            <p> Skills/tools I wield at my job:</p>
-        </div>
+       
             
-        <br><br>
         <div class="slider-container">
+            <p><b> Skills/tools I use at my job:</b></p>
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <!-- Card 1 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">⭐</div>
                         <div class="card-title">Confluence</div>
                         </div>
                     <!-- Card 2 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">⭐</div>
                         <div class="card-title">Trello</div>
                     </div>
                     <!-- Card 3 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🎯</div>
                         <div class="card-title">Jira</div>
                     </div>
                     <!-- Card 4 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🚀</div>
                         <div class="card-title">AWS, Lambda functions</div>
                     </div>
                     <!-- Card 5 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🚀</div>
                         <div class="card-title">Python, Pytorch</div>
                     </div>
                     <!-- Card 6 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🚀</div>
                         <div class="card-title">Statistical analysis, Data visualisation</div>
                     </div>
                     <!-- Card 7 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🧩</div>
                         <div class="card-title">HTML, CSS</div>
                     </div>
                     <!-- Card 8 -->
                     <div class="swiper-slide">
-                        <div class="card-icon">🧩</div>
                         <div class="card-title">Figma</div>
                     </div>
                 </div>
@@ -634,13 +866,15 @@
             });
         </script>
 
-    </div>
-
 </div>
+
     
     <div id="and_with_whom" class="page otherpages">
-        <div class="othercontent">
-            <h2> So far we've worked/ are working with,</h2>
+         <section class="content-section"> <!-- form (top margin) -->    
+            <div class="container"> <!-- form (width) -->
+                <div class="content-panel"> <!-- look -->
+       
+            <h3> Past and existing clients:</h3>
             <div class="logo-container">
                 <a href="https://plaksha.edu.in/ug/btech-degree/computer-science-and-artificial-intelligence" id = "delayedLink1" class="logo-item">
                     <img src="./images/plaksha_university.png" alt="Plaksha_University">
@@ -648,9 +882,8 @@
                         AI/Tech Education & Research (KCs):
                         <ul style="font-size:0.7rem; transform: translateY(-10%);">
                             <li>CSAI Program design & delivery</li>
-                            <li>Student, investor engagement</li>
-                            <li> Setting up of 2 digital research centres</li>
-                            <li>2x faculty growth, 140+ students</li>
+                            <li>Student, faculty & investor engagement</li>
+                            <li> Setting-up digital research centres</li>
                         </ul>
                     </div>
                 </a>
@@ -659,10 +892,9 @@
                     <div class="logo-hover-text">
                         AI, DS & Tech leadership (KCs):
                         <ul style="font-size:0.7rem; transform: translateY(-10%);">
-                            <li>Executive AI program management</li>
+                            <li>Flagship AI program design & management</li>
                             <li>Digitising program operations</li>
-                            <li>AI/ML upskilling of 60+ early career professionals</li>
-                            <li>Startup & Industry roles (93% campus placement)</li>
+                            <li>Faculty & Industry partnerships</li>
                         </ul>
                     </div>
                 </a>
@@ -692,9 +924,8 @@
                         AI for Cardiovascular Care (KCs): 
                         <ul style="font-size:0.7rem; transform: translateY(-10%);">
                             <li>Data design</li>
-                            <li>User understanding, interface design</li>
-                            <li>2 core AI models built and deployed</li>
-                            <li>Onboarding of 1st double-digit patients, 1st single-digit doctors</li>
+                            <li>User understanding & interface design</li>
+                            <li>Design & deployment of 2 core AI models</li>
                         </ul>
                     </div>
                 </a>
@@ -738,8 +969,9 @@
                 
             </script>
         </div>
+        </div>
+        </section>
     </div>
-
     
     <script>
         function showPage(pageId) {
@@ -756,7 +988,8 @@
             event.target.classList.add('active')
             
             /* for the logo */
-            document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';
+            /*document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';*/
+            document.getElementById('adhyaai-logo').style.visibility = 'visible';           
             
         }
     </script>
