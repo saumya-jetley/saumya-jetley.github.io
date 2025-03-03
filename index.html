@@ -47,13 +47,13 @@
         
         .container {
             width: 100%;
-            padding: 0 2rem;
+            padding: 0 auto;
             margin: 0 auto;
             justify-items: center;
         }
 
         :root {
-           font-size: 26px; /* Base font size */
+           font-size: 10px; /* Base font size */
         }
 
         /* Small devices (phones) */
@@ -62,7 +62,7 @@
                 max-width: 540px;
             }
             :root {
-                font-size: 18px;
+                font-size: 10px;
             }
         }
         
@@ -72,7 +72,7 @@
                 max-width: 720px;
             }
             :root {
-                font-size: 18px;
+                font-size: 10px;
             }
         }
         
@@ -81,12 +81,18 @@
             .container {
                 max-width: 960px;
             }
+            :root {
+                font-size: 16px;
+            }
         }
         
         /* Extra large devices */
         @media (min-width: 1200px) {
             .container {
                 max-width: 1140px;
+            }
+            :root {
+                font-size: 18px;
             }
         }
 
@@ -125,8 +131,23 @@
             align-items: center;
         }
 
+        /* Base styles for all screen sizes */
         nav li {
-            margin: 0 3.5rem;
+            margin: 0 0.5rem; /* Smaller margins for mobile by default */
+        }
+        
+        /* Medium screens */
+        @media (min-width: 768px) {
+            nav li {
+                margin: 0 1.5rem; /* Slightly larger margins for tablets */
+            }
+        }
+        
+        /* Large screens */
+        @media (min-width: 992px) {
+            nav li {
+                margin: 0 3.5rem; /* Original large margins for desktop */
+            }
         }
 
         nav a {
