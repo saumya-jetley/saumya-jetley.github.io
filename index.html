@@ -105,6 +105,7 @@
             padding: 2rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
         }
 
         .header h1 {
@@ -157,16 +158,36 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        nav a:hover {
-            color: #FFDE59;
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFDE59;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         
         .content-section {
-            padding: 2.2rem;
+            padding: 2.0rem;
+            max-width: 95%;
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
+            margin-bottom: 3rem;
+        }
+
+        .content-section:hover {
+            transform: scale(1.01);
         }
         
         .content-panel {
@@ -176,7 +197,7 @@
             padding: 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
+            }
 
         .content-panel h3 {
             margin-top: 0;
@@ -203,9 +224,16 @@
         .cta {
             background-color: #FFDE59;
             padding: 2.5rem;
-            width:100%;
+            max-width:90%;
             text-align: center;
             margin: 4rem 0;
+            margin-bottom: 5rem;
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .cta:hover {
+            transform: scale(1.01);
         }
 
 
@@ -256,8 +284,8 @@
 
 
         ul {
-            font-size: 1rem;
-            line-height: 1.2rem;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
             margin-bottom: 0.2rem;
         }
 
@@ -469,6 +497,7 @@
         .slider-container {
             width: 90%;
             max-width: 90%;
+            margin-bottom: 4rem;
         }
 
         .swiper {
@@ -505,7 +534,14 @@
         text-align: center;
         background-color: rgba(255, 255, 255, 0.5);
         margin: 2rem;
+        margin-bottom: 4rem;
+        transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
     }
+
+    .values-section:hover {
+            transform: scale(1.01);
+        }
     
     .values-header {
         margin-bottom: 30px;
@@ -518,7 +554,7 @@
     }
     
     .values-header p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         max-width: 95%;
         margin: auto;
         font-weight: 500;
@@ -688,58 +724,63 @@
         <section class="cta">
             <div class="container">
                 
-                    <h2 style="color:#555"><b>The origin story</b>...</h2> 
-                    <h3 style="color:#555; text-align: justify">
+                    <h2 style="color:#333"><b>The origin story</b>...</h2> 
+                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'">
                         Given <a href="./Saumya-Jetley/profile.html"><mark>my scientific background</mark></a>, 
                         it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
                         rising number of startups.
                         To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
-                        the punctual 'expertise and strategy' needs of startups.</h3>
-                    <h3 style="color:#555; text-align: justify">
+                        the punctual 'expertise and strategy' needs of startups.</p>
+                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'">
                         A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
                         for its product and data strategy in its formative period.
         
                         I work across functionalities to co-architect AI solutions that align data and product strategy,
-                        helping build and deploy cutting-edge AI models that are customised, robust, and scalable.</h3>
+                        helping build and deploy cutting-edge AI models that are customised, robust, and scalable.</p>
 
-                    <h3 style="color:#555; text-align: justify"> Here's a snapshot of my professional journey: </h3>
+                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'"> Here's a snapshot of my professional journey: </p>
                 
         
                     <div class="curvypath-container">
                             <!-- Curvy Path -->
                             <div class="curvy-path">
                             <!-- Career Milestones -->
-                                <div class="milestone milestone-1"><a><b style="font-size:1rem">C-DAC
+                                <div class="milestone milestone-1"><a><b style="font-size:1rem; font-family: 'Segoe UI'">C-DAC
                                 </b><br>(centre that built India's first supercomputer)</a></div>
-                                <div class="milestone milestone-2"><a><b style="font-size:1rem">DPhil, Oxford University</b></a></div>
-                                <div class="milestone milestone-3"><a><b style="font-size:1rem">AI in<br>Industry & Startups</b>
+                                <div class="milestone milestone-2"><a><b style="font-size:1rem; font-family: 'Segoe UI'">DPhil, Oxford University</b></a></div>
+                                <div class="milestone milestone-3"><a><b style="font-size:1rem; font-family: 'Segoe UI'">AI in<br>Industry & Startups</b>
                                     <br> (XRCE, Five AI, INRIA)<br></a></div>
-                                <div class="milestone milestone-4"><a><b style="font-size:0.9rem">Founding-faculty & Associate Director, Plaksha</b> 
+                                <div class="milestone milestone-4"><a><b style="font-size:0.9rem; font-family: 'Segoe UI'">Founding-faculty & Associate Director, Plaksha</b> 
                                     <br>India's fastest growing tech university</a></div>
-                                <div class="milestone milestone-5"><a><b style="font-size:1rem">AI Product Building 
+                                <div class="milestone milestone-5"><a><b style="font-size:1rem; font-family: 'Segoe UI'">AI Product Building 
                                 </b> <br>@ Global tech startups</a></div>
                             </div>
                     </div>
             </div>
         </section>
 
-
         <section class="values-section" style="border-bottom: 4px solid #FFD000; /* Golden yellow accent */
             border-right: 4px solid #FFD000; /* Golden yellow accent */">
             <div class="container">
                 <div class="values-header">
                     <div class="values-grid" style="grid-template-columns: repeat(2, 1fr);">
-                        <div class="value-card" >
-                            <h3>At AdhyaAI, I build on an in-depth study of AI (<i>Adhyayan</i>) -- from first principles to the latest in 
-                                generative tools and techniques -- to integrate AI within new and existing workflows.</h3>
+                        <div style="width:80%; text-align:center">
+                            <h3>At AdhyaAI</h3> 
+                            <ul style="text-align:justify; color: #333;">
+                                <li>I build on an in-depth study of AI (<i>Adhyayan</i>),</li>
+                                <li>First principles to latest generative tools and techniques,</li>
+                                <li>Integrating AI within new and existing workflows.</li>
+                            </ul>
+                            
+                            <br> 
                             
                             <h3>
                                 <mark><a onclick="showPage('and_with_whom')">Click</a></mark>
-                                here to see the companies I've partnered with till date.</h3>
+                                here to see the companies I've collaborated with.</h3>
                         </div>
                         
-                        <div class="value-card">
-                            <img src="./images/main_page.jpeg" style="width: 100%" alt="AI Technology Illustration"></p>
+                        <div style="width:80%; text-align:center">
+                            <img src="./images/main_page.jpeg" style="width: 80%" alt="AI Technology Illustration"></p>
                         </div>
             
                     </div>
@@ -773,35 +814,36 @@
                         <div class="mustard-box" style= "text-align:center">
                             <a> <b>Startup Consulting</b></a>
                             <div class="hover-text">
-                                <ul>
-                                <li>Data & product strategy</li>
-                                <li>Product roadmap</li> 
-                                <li>AI/tech development</li>  
+                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
+                                    <li>Data & product strategy</li>
+                                    <li>Product roadmap</li> 
+                                    <li>AI/tech development</li>  
                                 </ul>
                             </div>
                         </div>
                         <div class="mustard-box" style="text-align:center">
                             <a><b> Institution building</b></a>
                             <div class="hover-text">
-                                <ul>
-                                <li>Research/startup lab blueprint</li>
-                                <li>Growth strategy</li> 
-                                <li>Partnership design</li>  
+                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
+                                    <li>Research blueprint</li>
+                                    <li>Growth strategy</li> 
+                                    <li>Partnership design</li>  
                                 </ul>
                             </div>
                         </div>
                         <div class="mustard-box" style="text-align:center">
                             <a> <b>Education and Upskilling</b></a>
                             <div class="hover-text">
-                                <ul>
-                                <li>AI program design</li>
-                                <li>Program management</li> 
-                                <li>Course design and delivery</li>  
+                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
+                                    <li>AI program design</li>
+                                    <li>Program management</li> 
+                                    <li>Course design and delivery</li>  
                                 </ul>
                                 </div>
                         </div>
                 </div>
     </section>
+    
 </div>
     
 
@@ -819,7 +861,7 @@
                             <div onclick="showText(4)"><b>Deliver</b></div>
                         </div>
                         <div class="text-container" id="textDisplay"> 
-                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
+                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. 
                             <br><br>
                             We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
                         </div>
