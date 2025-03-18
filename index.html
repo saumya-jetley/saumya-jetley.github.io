@@ -642,20 +642,6 @@
             grid-template-columns: repeat(5, 1fr);
         }
     }
-
-    .blog-full-content iframe {
-        width: 100%;
-        border: none;
-        height: 500px;
-        background: transparent;
-    }
-    
-    /* Optional: Make iframe height responsive to content */
-    @media screen and (max-width: 768px) {
-        .blog-full-content iframe {
-            height: 600px; /* Adjust for mobile */
-        }
-    }
     </style>
     
 </head>
@@ -1112,43 +1098,30 @@
                     </div>
                     <div blog_content_id = blog1 class="blog-nav-item">
                         <span class="blog-date">Nov 2024</span>
-                        <span class="blog-title">My CV toolkit</span>
+                        <span class="blog-title">The CV Story</span>
                     </div>
                 </div>
                 
                 <div class="blog-content">
-                    <article id=blog2 class="blog-post">
+                    <article id=blog2 class="blog-post active">
                         <h2>Systemising Agentic AI: A case study</h2>
                         <p class="blog-meta">December 17, 2024 | 5 min read</p>
-                        <div class="blog-preview">
-                            <p>You are a hiring manager. You open your laptop on a crisp Monday morning, energised...</p>
-                        </div>
-                        <div class="blog-full-content" style="display: none;">
-                            <iframe src="./a-blog-articles/agentic-ai.html"></iframe>
-                        </div>
-                        <a href="#" class="read-more" onclick="toggleContent('blog2'); return false;">Read More →</a>
-                    </article> 
-                    <article id=blog1 class="blog-post active">
-                        <h2>My CV toolkit: A trip down memory lane</h2>
-                        <p class="blog-meta">November 15, 2024 | 5 min read</p>
-                        <div class="blog-preview">
-                            <p>Back in the day, I built tools for printed and handwritten text recognition for...</p>
-                        </div>
-                        <div class="blog-full-content" style="display: none;">
-                            <iframe src="./a-blog-articles/deepCV.html" 
-                                    style="width: 100%; border: none; height: 500px;"></iframe>
-                        </div>
-                        <a href="#" class="read-more" onclick="toggleContent('blog1'); return false;">Read More →</a>
-                    </article>
+                        <iframe src="./a-blog-articles/agentic-ai.html" scrolling="no"></iframe>
                     
-                </div>
+                    </article> 
+                    <article id=blog1 class="blog-post">
+                        <h2>The CV Story: A trip down memory lane</h2>
+                        <p class="blog-meta">November 15, 2024 | 5 min read</p>
+                        <iframe src="./a-blog-articles/deepCV.html" scrolling="no"></iframe>
+                    </article>
+                </div>  
             </div>
         </section>
 
         <style>
             .blog-section {
                 padding: 2rem;
-                max-width: 95%;
+                width: 80%;
                 margin: 0 auto;
             }
 
@@ -1201,6 +1174,7 @@
                 padding: 2rem;
                 border-radius: 0.5rem;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                width: 100%;
             }
 
             .blog-post.active {
@@ -1216,6 +1190,24 @@
                 color: #666;
                 font-size: 0.9rem;
                 margin-bottom: 1rem;
+            }
+
+            .blog-post iframe {
+                width: 100%;
+                height: 80rem;
+                border: none;
+                overflow: hidden;
+                background: transparent;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+                
+            /* Add responsive iframe height */
+            @media screen and (max-width: 768px) {
+                .blog-post iframe {
+                    min-height: 400px;
+                }
             }
 
             .read-more {
@@ -1277,24 +1269,6 @@
             });
         </script>
 
-<script>
-    function toggleContent(blogId) {
-        const article = document.getElementById(blogId);
-        const preview = article.querySelector('.blog-preview');
-        const fullContent = article.querySelector('.blog-full-content');
-        const readMoreBtn = article.querySelector('.read-more');
-        
-        if (preview.style.display !== 'none') {
-            preview.style.display = 'none';
-            fullContent.style.display = 'block';
-            readMoreBtn.textContent = '← Show Less';
-        } else {
-            preview.style.display = 'block';
-            fullContent.style.display = 'none';
-            readMoreBtn.textContent = 'Read More →';
-        }
-    }
-</script>
     </div>
 
 </body>
