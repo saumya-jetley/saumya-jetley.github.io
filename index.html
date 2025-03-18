@@ -642,6 +642,20 @@
             grid-template-columns: repeat(5, 1fr);
         }
     }
+
+    .blog-full-content iframe {
+        width: 100%;
+        border: none;
+        height: 500px;
+        background: transparent;
+    }
+    
+    /* Optional: Make iframe height responsive to content */
+    @media screen and (max-width: 768px) {
+        .blog-full-content iframe {
+            height: 600px; /* Adjust for mobile */
+        }
+    }
     </style>
     
 </head>
@@ -1092,33 +1106,41 @@
         <section class="blog-section">
             <div class="blog-container">
                 <div class="blog-nav">
-                    <div blog_content_id = blog1 class="blog-nav-item active">
-                        <span class="blog-date">Jan 2024</span>
-                        <span class="blog-title">AI in Healthcare</span>
+                    <div blog_content_id=blog2 class="blog-nav-item active">
+                        <span class="blog-date">Dec 2024</span>
+                        <span class="blog-title">Systemising Agentic AI</span>
                     </div>
-                    <div blog_content_id=blog2 class="blog-nav-item">
-                        <span class="blog-date">Dec 2023</span>
-                        <span class="blog-title">LLMs: A Primer</span>
-                    </div>
-                    <div blog_content_id=blog3 class="blog-nav-item">
-                        <span class="blog-date">Nov 2023</span>
-                        <span class="blog-title">Startup Tech Strategy</span>
+                    <div blog_content_id = blog1 class="blog-nav-item">
+                        <span class="blog-date">Nov 2024</span>
+                        <span class="blog-title">My CV toolkit</span>
                     </div>
                 </div>
                 
                 <div class="blog-content">
-                    <article id=blog1 class="blog-post active">
-                        <h2>AI in Healthcare: Beyond the Hype</h2>
-                        <p class="blog-meta">January 15, 2024 | 5 min read</p>
-                        <p>The integration of AI in healthcare has moved beyond buzzwords to practical applications...</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </article>
                     <article id=blog2 class="blog-post">
-                        <h2>LLMs: A Primer</h2>
-                        <p class="blog-meta">December 10, 2023 | 7 min read</p>
-                        <p>In this blog, we explore the basics of LLMs, their capabilities, and their applications...</p>
-                        <a href="#" class="read-more">Read More →</a>
+                        <h2>Systemising Agentic AI: A case study</h2>
+                        <p class="blog-meta">December 17, 2024 | 5 min read</p>
+                        <div class="blog-preview">
+                            <p>You are a hiring manager. You open your laptop on a crisp Monday morning, energised...</p>
+                        </div>
+                        <div class="blog-full-content" style="display: none;">
+                            <iframe src="./a-blog-articles/agentic-ai.html"></iframe>
+                        </div>
+                        <a href="#" class="read-more" onclick="toggleContent('blog2'); return false;">Read More →</a>
                     </article> 
+                    <article id=blog1 class="blog-post active">
+                        <h2>My CV toolkit: A trip down memory lane</h2>
+                        <p class="blog-meta">November 15, 2024 | 5 min read</p>
+                        <div class="blog-preview">
+                            <p>Back in the day, I built tools for printed and handwritten text recognition for...</p>
+                        </div>
+                        <div class="blog-full-content" style="display: none;">
+                            <iframe src="./a-blog-articles/deepCV.html" 
+                                    style="width: 100%; border: none; height: 500px;"></iframe>
+                        </div>
+                        <a href="#" class="read-more" onclick="toggleContent('blog1'); return false;">Read More →</a>
+                    </article>
+                    
                 </div>
             </div>
         </section>
@@ -1254,6 +1276,25 @@
                 });
             });
         </script>
+
+<script>
+    function toggleContent(blogId) {
+        const article = document.getElementById(blogId);
+        const preview = article.querySelector('.blog-preview');
+        const fullContent = article.querySelector('.blog-full-content');
+        const readMoreBtn = article.querySelector('.read-more');
+        
+        if (preview.style.display !== 'none') {
+            preview.style.display = 'none';
+            fullContent.style.display = 'block';
+            readMoreBtn.textContent = '← Show Less';
+        } else {
+            preview.style.display = 'block';
+            fullContent.style.display = 'none';
+            readMoreBtn.textContent = 'Read More →';
+        }
+    }
+</script>
     </div>
 
 </body>
