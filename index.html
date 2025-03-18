@@ -736,7 +736,7 @@
     <div class="container">
         <div class="values-grid" style="grid-template-columns: 40% 60%;">
                 <div class="value-card" style="width:85%; text-align:center;">
-                    <h3> I don't simply talk, I also <mark><a onclick="showPage('blog')">write</a></mark>.
+                    <h3> I don't simply talk, I also <mark><a onclick="showPage('blog');">write</a></mark>.
                         I don't simply discuss, I also <mark><a onclick="showPage('and_with_whom')">deliver</a></mark>.</h3>
                         <br><br>
                     <p style="font-size:1.2rem"><b>Ethos</b>: Honesty, Strong professional ethics, and declaring it's a Success only if it works at both ends.</p>
@@ -1060,6 +1060,11 @@
     
     <script>
         function showPage(pageId) {
+
+             /* Scroll to header when changing pages */
+             document.querySelector('header').scrollIntoView({
+                    behavior: 'instant'});
+                    
             /* for the page */
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -1079,12 +1084,7 @@
             /* for the logo */
             /*document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';*/
             document.getElementById('adhyaai-logo').style.visibility = 'visible';           
-            
-            /* Scroll to top when changing pages */
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        
         }
     </script>
 
