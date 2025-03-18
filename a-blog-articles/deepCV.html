@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            background: transparent;
+            font-size: 1.1rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        li {
+            margin-bottom: 1rem;
+        }
+        div {
+            margin-bottom: 1.5rem;
+        }
+        /* Add space after the last element to prevent content cutoff */
+        *:last-child {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <p>
+    Back in the day, I built tools for printed and handwritten text recognition for Indian languages. 
+    
+    That had been my introduction to the growing field of Computer Vision.
+    
+    Some of the problems involved could be characterised as segmentation problems, including document layout understanding, sentence extraction, word extraction, etc. 
+    Others could be characterised as classification problems such as script recognition (e.g. is it bangla, tamil, or hindi?), character recognition (alphabet or number, which number or which alphabet?).
+    </p>
+    
+    <p>
+        Segmentation tasks were largely tackled using heuristics, and sometimes by throwing some classification in the mix, for example, what layout does it look like? Manhattan (grid-like) or non-manhattan (complex shapes - curves, diagonals, etc). 
+        Once the category was known, the heuristics kicked in. 
+        Document was size-normalised. 
+        Then relative width and orientation of spaces were used to make the decision on what's a 
+        paragraph, what's a line, what's a word. Then the word was split into graphemes which were 
+        the irreducible entities sent for recognition via n-way classification. 
+    </p>
+    
+    <p>Classification before large neural networks was itself tackled in two separate steps - 
+        feature extraction, followed by linear (simple threshold based) or 
+        non-linear classifier (combination of threshold as in decision trees, or kernel mapping as in SVMs). 
+
+    When the input data was a time series, 
+    as in the case of handwritten characters, 
+    different from printed characters that are provided as 
+    a one-time snapshot for feature extraction and classification, 
+    one could make use of time series models such as hidden markov models.
+    </p>
+
+    <p>
+    A non-exhaustive list of feature extractors includes, LBP 
+    (linear binary patterns - histogram of quantised 3x3 units - 
+    0 to 255 values); HoG (histogram of oriented gradients which
+     became famous for solving for real-time pedestrian detection); 
+     Haar-features (0 and 1 pattern recognition); and variants of 
+     these for preserving spatial information. 
+     A non-exhaustive list of classifiers I have used includes, 
+     linear classifiers, cascade of linear classifiers 
+     (ref. Viola-Jones face detector), random forest, 
+     bayesian classifiers, support vector machines, etc.
+    </p>
+
+    <p> 
+        It was lot of mixing and matching. One feature with another model, 
+        diagnostics and interpretation were key. 
+        One could say it was part artistic. 
+    </p>
+
+    <p>
+        When deep learning began scaling - with data volumes 
+        and compute efficiencies - 
+        smart segmentation and triaging was no longer necessary. 
+        What came about were models like YOLO which used 
+        sliding window for brute-force segmentation coupled with 
+        CNNs for co-optimised feature extraction and classification. 
+        At the end were attached layers for non-maximal suppression 
+        that removed repeated and overlapping object detections.
+    </p>
+    <p>
+    YOLO is still popular and in wide use. 
+    Check out the work by <a href="https://www.ultralytics.com/">Ultralytics</a> providing an easy-to-use and effective platform 
+    for training YOLO models on real-world industrial datasets and deploying them on portables and
+    handy hardware kits.
+   </p>
+    
+</body>
+</html>
+
