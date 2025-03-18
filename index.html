@@ -100,7 +100,7 @@
 
         
         .header {
-            background-color: #FFDE59; /* Brighter yellow */
+            background-color: #FFD000; /* Brighter yellow */
             background-image: radial-gradient(circle at 50% 50%, #FFE77A 10%, transparent 50%);
             padding: 2rem;
             text-align: center;
@@ -160,6 +160,10 @@
             font-size: 1.2rem;
             transition: color 0.3s ease;
             position: relative;
+        }
+
+        nav a.active {
+            color: #FFDE59; /* Light yellow color for active state */
         }
 
         nav a::after {
@@ -638,7 +642,6 @@
             grid-template-columns: repeat(5, 1fr);
         }
     }
-    
     </style>
     
 </head>
@@ -656,7 +659,8 @@
                 <li><a href="#" onclick="showPage('who_we_are')" class="active">Who</a></li>
                 <li><a href="#" onclick="showPage('what_we_do')">What</a></li>
                 <li><a href="#" onclick="showPage('how_we_work')">How</a></li>
-                <li><a href="#" onclick="showPage('and_with_whom')">and, with Whom</a></li>
+                <li><a id = "and_with_whom_nav" href="#" onclick="showPage('and_with_whom')">and, with Whom</a></li>
+                <li><a id = "blog_nav" href="#" onclick="showPage('blog')">A-Blog</a></li>
             </ul>
         </div>
     </nav>
@@ -666,8 +670,9 @@
         <section class="content-section"> <!-- form (top margin) -->    
             <div class="container"> <!-- form (width) -->
                 <div class="content-panel"> <!-- look -->
-                    <h2 style="text-align:center"><b>AdhyaAI</b> (from the union of <b>AI</b> with the <i>sanskrit</i> word 
-                        <img src="./images/text-1737546265310.png" style="width:7rem">) is a single-person AI/ML consulting force founded to address the punctual 'expertise and strategy' needs of AI startups today.</h2>
+                    <p style="text-align:center">From the union of <b>AI</b> with the <i>sanskrit</i> word 
+                        <img src="./images/text-1737546265310.png" style="width:5rem"> ,</p>
+                    <h2 style="text-align:center">AdhyaAI is a single-person AI/ML consulting force founded to address the punctual 'expertise and strategy' needs of AI startups today.</h2>
                 </div>
             </div>
         </section>
@@ -729,9 +734,9 @@
     <section class="values-section" style="border-bottom: 4px solid #FFD000; /* Golden yellow accent */
     border-right: 4px solid #FFD000; /* Golden yellow accent */">
     <div class="container">
-        <div class="values-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="values-grid" style="grid-template-columns: 40% 60%;">
                 <div class="value-card" style="width:85%; text-align:center;">
-                    <h3> I don't simply talk, I also <mark><a onclick="showPage('and_with_whom')">write</a></mark>.
+                    <h3> I don't simply talk, I also <mark><a onclick="showPage('blog')">write</a></mark>.
                         I don't simply discuss, I also <mark><a onclick="showPage('and_with_whom')">deliver</a></mark>.</h3>
                         <br><br>
                     <p style="font-size:1.2rem"><b>Ethos</b>: Honesty, Strong professional ethics, and declaring it's a Success only if it works at both ends.</p>
@@ -846,40 +851,7 @@
 
     <div id="how_we_work" class="page homepage">
 
-         <section class="content-section"> <!-- form (top margin) -->    
-            <div class="container"> <!-- form (width) -->
-                <div class="content-panel"> <!-- look -->
-       
-                <div class="main-container">
-                        <div class="box-container">
-                            <div onclick="showText(1)"><b>Discover</b></div>
-                            <div onclick="showText(2)"><b>Design</b></div>
-                            <div onclick="showText(3)"><b>Develop</b></div>
-                            <div onclick="showText(4)"><b>Deliver</b></div>
-                        </div>
-                        <div class="text-container" id="textDisplay"> 
-                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. 
-                            <br><br>
-                            We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
-                        </div>
-                </div>
-            </div>
-            </div>
-        </section>
-            <script>
-                function showText(boxNumber) {
-                const textDisplay = document.getElementById('textDisplay');
-                const texts = {
-                    1: '<b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. <br> <br> I help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.',
-                    2: '<b>Design</b>: I help design AI systems, creating a co-aligned product and data roadmap such that the resulting AI system is learnable and scalable.',
-                    3: '<b>Develop</b>: Existing teams need guidance with tech discernment: models abound, but which ones are most suitable? Building, testing and deploying models, user trials, and integrated iteration are key areas of my work.',
-                    4: '<b>Deliver</b>: I help build AI models and tools, write technical concept papers, grant proposals, design evidence-based research studies, develop student/early-professionals training programmes - but also - make the last mile delivery.'
-                };
-                textDisplay.innerHTML = texts[boxNumber];
-                }
-            </script>
-       
-            
+              
         <div class="slider-container">
             <p><b> Skills/tools I use at my job:</b></p>
             <div class="swiper">
@@ -922,7 +894,40 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-    </div>
+        </div>
+
+         <section class="content-section"> <!-- form (top margin) -->    
+            <div class="container"> <!-- form (width) -->
+                <div class="content-panel"> <!-- look -->
+       
+                <div class="main-container">
+                        <div class="box-container">
+                            <div onclick="showText(1)"><b>Discover</b></div>
+                            <div onclick="showText(2)"><b>Design</b></div>
+                            <div onclick="showText(3)"><b>Develop</b></div>
+                            <div onclick="showText(4)"><b>Deliver</b></div>
+                        </div>
+                        <div class="text-container" id="textDisplay"> 
+                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
+                            <br><br>
+                            We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
+                        </div>
+                </div>
+            </div>
+            </div>
+        </section>
+            <script>
+                function showText(boxNumber) {
+                const textDisplay = document.getElementById('textDisplay');
+                const texts = {
+                    1: '<b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. <br> <br> I help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.',
+                    2: '<b>Design</b>: I help design AI systems, creating a co-aligned product and data roadmap such that the resulting AI system is learnable and scalable.',
+                    3: '<b>Develop</b>: Existing teams need guidance with tech discernment: models abound, but which ones are most suitable? Building, testing and deploying models, user trials, and integrated iteration are key areas of my work.',
+                    4: '<b>Deliver</b>: I help build AI models and tools, write technical concept papers, grant proposals, design evidence-based research studies, develop student/early-professionals training programmes - but also - make the last mile delivery.'
+                };
+                textDisplay.innerHTML = texts[boxNumber];
+                }
+            </script>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script>
@@ -948,7 +953,7 @@
 </div>
 
     
-    <div id="and_with_whom" class="page homepage">
+    <div id="and_with_whom" class="page homepage" nav_link_id = "and_with_whom_nav">
          <section class="content-section"> <!-- form (top margin) -->    
             <div class="container"> <!-- form (width) -->
                 <div class="content-panel"> <!-- look -->
@@ -1061,19 +1066,195 @@
             });
             document.getElementById(pageId).classList.add('active');
 
-            /* for the nav-links*/
-            document.querySelectorAll('.nav-links a').forEach(navlink => {
+            /* for the nav*/
+            document.querySelectorAll('nav a').forEach(navlink => {
                 navlink.classList.remove('active');
             });
+            // will work if the event is clicking the nav button
             event.target.classList.add('active')
+            // will work if the event is clicking through page link
+            const page_item = document.getElementById(pageId)
+            document.getElementById(page_item.getAttribute('nav_link_id')).classList.add('active')
             
             /* for the logo */
             /*document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';*/
             document.getElementById('adhyaai-logo').style.visibility = 'visible';           
             
+            /* Scroll to top when changing pages */
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
     </script>
 
+    <div id="blog" class="page homepage" nav_link_id = "blog_nav">
+        <section class="blog-section">
+            <div class="blog-container">
+                <div class="blog-nav">
+                    <div blog_content_id = blog1 class="blog-nav-item active">
+                        <span class="blog-date">Jan 2024</span>
+                        <span class="blog-title">AI in Healthcare</span>
+                    </div>
+                    <div blog_content_id=blog2 class="blog-nav-item">
+                        <span class="blog-date">Dec 2023</span>
+                        <span class="blog-title">LLMs: A Primer</span>
+                    </div>
+                    <div blog_content_id=blog3 class="blog-nav-item">
+                        <span class="blog-date">Nov 2023</span>
+                        <span class="blog-title">Startup Tech Strategy</span>
+                    </div>
+                </div>
+                
+                <div class="blog-content">
+                    <article id=blog1 class="blog-post active">
+                        <h2>AI in Healthcare: Beyond the Hype</h2>
+                        <p class="blog-meta">January 15, 2024 | 5 min read</p>
+                        <p>The integration of AI in healthcare has moved beyond buzzwords to practical applications...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article id=blog2 class="blog-post">
+                        <h2>LLMs: A Primer</h2>
+                        <p class="blog-meta">December 10, 2023 | 7 min read</p>
+                        <p>In this blog, we explore the basics of LLMs, their capabilities, and their applications...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article> 
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .blog-section {
+                padding: 2rem;
+                max-width: 95%;
+                margin: 0 auto;
+            }
+
+            .blog-container {
+                display: flex;
+                gap: 2rem;
+                flex-direction: row;
+            }
+
+            .blog-nav {
+                flex: 0 0 250px;
+                border-right: 2px solid #FFD000;
+                padding-right: 1rem;
+            }
+
+            .blog-nav-item {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                cursor: pointer;
+                border-radius: 0.5rem;
+                transition: background-color 0.3s ease;
+            }
+
+            .blog-nav-item:hover {
+                background-color: rgba(255, 222, 89, 0.2);
+            }
+
+            .blog-nav-item.active {
+                background-color: rgba(255, 222, 89, 0.3);
+            }
+
+            .blog-date {
+                font-size: 0.9rem;
+                color: #666;
+            }
+
+            .blog-title {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .blog-content {
+                flex: 1;
+            }
+
+            .blog-post {
+                display: none;
+                background-color: rgba(255, 255, 255, 0.7);
+                padding: 2rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .blog-post.active {
+                display: block;
+            }
+
+            .blog-post h2 {
+                margin-top: 0;
+                color: #333;
+            }
+
+            .blog-meta {
+                color: #666;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .read-more {
+                display: inline-block;
+                color: #333;
+                text-decoration: none;
+                font-weight: bold;
+                margin-top: 1rem;
+                transition: color 0.3s ease;
+            }
+
+            .read-more:hover {
+                color: #FFD000;
+            }
+
+            /* Mobile Responsive Design */
+            @media (max-width: 768px) {
+                .blog-container {
+                    flex-direction: column;
+                }
+
+                .blog-nav {
+                    flex: none;
+                    border-right: none;
+                    border-bottom: 2px solid #FFD000;
+                    padding-right: 0;
+                    padding-bottom: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                .blog-nav-item {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.8rem;
+                }
+
+                .blog-date {
+                    font-size: 0.8rem;
+                }
+            }
+        </style>
+
+        <script>
+            document.querySelectorAll('.blog-nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remove active class from all items
+                    document.querySelectorAll('.blog-nav-item').forEach(i => i.classList.remove('active'));
+                
+                    // Update the blog content
+                    document.querySelectorAll('.blog-post').forEach(post => post.classList.remove('active'));
+                    
+                    // activate the blog-nav-item
+                    item.classList.add('active') 
+                    // activate the associated blog-post 
+                    document.getElementById(item.getAttribute('blog_content_id')).classList.add('active');
+                    
+                });
+            });
+        </script>
+    </div>
 
 </body>
 </html>
