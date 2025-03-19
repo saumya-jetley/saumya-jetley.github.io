@@ -36,11 +36,10 @@
     
     <p>
     Back in the day, I built tools for printed and handwritten text recognition for Indian languages. 
-    
     That had been my introduction to the growing field of Computer Vision.
     
-    How did we decompose the problematic? Well, some of the tasks could be characterised as segmentation tasks, including document layout understanding, sentence extraction, word extraction, etc. 
-    Others could be characterised as classification tasks such as script recognition (e.g. is it bangla, tamil, or hindi?), character recognition (alphabet or number, which number or which alphabet?).
+    How did we decompose the problematic? Well, some of the tasks could be characterised as segmentation tasks, like document layout understanding, sentence extraction, word extraction. 
+    Others could be characterised as classification tasks such as script recognition (e.g. is it bangla, tamil, or hindi?), and character recognition.
     </p>
     
     <p>
@@ -58,8 +57,6 @@
 
     When the input data was a time series, 
     as in the case of handwritten characters, 
-    different from printed characters that are provided as 
-    a one-time snapshot for feature extraction and classification, 
     one could make use of time series models such as hidden markov models.
     </p>
 
@@ -68,12 +65,12 @@
     (linear binary patterns - histogram of quantised 3x3 units - 
     0 to 255 values); HoG (histogram of oriented gradients which
      became famous for solving for real-time pedestrian detection); 
-     Haar-features (0 and 1 pattern recognition); and variants of 
+     Haar-features (0 and 1 patterns); and variants of 
      these for preserving spatial information. 
      A non-exhaustive list of classifiers I have used includes, 
      linear classifiers, cascade of linear classifiers 
      (ref. Viola-Jones face detector), random forest, 
-     bayesian classifiers, support vector machines, etc.
+     bayesian classifiers, support vector machines, HMMs etc.
     </p>
 
     <p> 
@@ -83,20 +80,34 @@
 
     <p>
         About 2011, deep learning began gathering momentum. 
-        As deep learning began scaling - with data volumes (ImageNet)
+        As deep learning started to scale - with data volumes (ImageNet)
         and compute efficiencies (GPUs) - 
         smart segmentation and triaging was no longer necessary. 
         What came about were models like YOLO which used 
-        sliding window for brute-force segmentation of potential object boxes. 
-        These were resized and passed through CNNs for co-optimised feature extraction and classification. 
+        sliding window for brute-force segmentation of potential object boxes. Most of the job was 'good classification'. 
+        The windows were resized and passed through CNNs for co-optimised feature extraction and classification. 
         Post processing involved non-maximal suppression to remove repeated and overlapping object detections.
+        <br>
+        
+        (Note: YOLO is still popular and in wide use. 
+        Check out the work by <a href="https://www.ultralytics.com/">Ultralytics</a> providing an easy-to-use and effective platform 
+        for training YOLO models on real-world industrial datasets and deploying them on portables and
+        handy hardware kits.
     </p>
+    
+
     <p>
-    YOLO is still popular and in wide use. 
-    Check out the work by <a href="https://www.ultralytics.com/">Ultralytics</a> providing an easy-to-use and effective platform 
-    for training YOLO models on real-world industrial datasets and deploying them on portables and
-    handy hardware kits.
-   </p>
+        <b>
+        TLDR; Where am I going with this? Well, I guess I want to say two things:
+        <ol>
+        <li>Tools shape the nature of the problematic.</li>
+        <li> Also not. Cause the way I see it ML at its core has always been about finding the <i>right</i> balance between Bias & Variance. 
+        In earlier models, the biases came through induction i.e. through human understanding of the data and the problem, with lesser variance or adaptability. 
+        In DNNs the models grew to be complex, allowing for higher variance, so the bias had to come from sophisticated architectures and learning algorithms.           
+            In LLMs and beyond, with even larger models the frontier lies in better and smarter learning algorithms.
+            </li>
+        </b>
+    </p>
     
 </body>
 </html>
