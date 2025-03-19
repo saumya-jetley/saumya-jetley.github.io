@@ -39,8 +39,8 @@
     
     That had been my introduction to the growing field of Computer Vision.
     
-    Some of the problems involved could be characterised as segmentation problems, including document layout understanding, sentence extraction, word extraction, etc. 
-    Others could be characterised as classification problems such as script recognition (e.g. is it bangla, tamil, or hindi?), character recognition (alphabet or number, which number or which alphabet?).
+    How did we decompose the problematic? Well, some of the tasks could be characterised as segmentation tasks, including document layout understanding, sentence extraction, word extraction, etc. 
+    Others could be characterised as classification tasks such as script recognition (e.g. is it bangla, tamil, or hindi?), character recognition (alphabet or number, which number or which alphabet?).
     </p>
     
     <p>
@@ -52,9 +52,9 @@
         the irreducible entities sent for recognition via n-way classification. 
     </p>
     
-    <p>Classification before large neural networks was itself tackled in two separate steps - 
+    <p>Classification before large neural networks was itself tackled in two separate steps: 
         feature extraction, followed by linear (simple threshold based) or 
-        non-linear classifier (combination of threshold as in decision trees, or kernel mapping as in SVMs). 
+        non-linear classification (combination of thresholds as in decision trees, or kernel-based as in SVMs). 
 
     When the input data was a time series, 
     as in the case of handwritten characters, 
@@ -64,7 +64,7 @@
     </p>
 
     <p>
-    A non-exhaustive list of feature extractors includes, LBP 
+    A non-exhaustive list of feature extractors I used included, LBP 
     (linear binary patterns - histogram of quantised 3x3 units - 
     0 to 255 values); HoG (histogram of oriented gradients which
      became famous for solving for real-time pedestrian detection); 
@@ -77,20 +77,19 @@
     </p>
 
     <p> 
-        It was lot of mixing and matching. One feature with another model, 
-        diagnostics and interpretation were key. 
-        One could say it was part artistic. 
+        It was lot of mixing and matching. 
+        One feature with another model, choices driven by intuition and understanding of data regularities.
     </p>
 
     <p>
-        When deep learning began scaling - with data volumes 
-        and compute efficiencies - 
+        About 2011, deep learning began gathering momentum. 
+        As deep learning began scaling - with data volumes (ImageNet)
+        and compute efficiencies (GPUs) - 
         smart segmentation and triaging was no longer necessary. 
         What came about were models like YOLO which used 
-        sliding window for brute-force segmentation coupled with 
-        CNNs for co-optimised feature extraction and classification. 
-        At the end were attached layers for non-maximal suppression 
-        that removed repeated and overlapping object detections.
+        sliding window for brute-force segmentation of potential object boxes. 
+        These were resized and passed through CNNs for co-optimised feature extraction and classification. 
+        Post processing involved non-maximal suppression to remove repeated and overlapping object detections.
     </p>
     <p>
     YOLO is still popular and in wide use. 
