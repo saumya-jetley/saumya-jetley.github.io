@@ -78,7 +78,7 @@
             position: sticky;
             top: 0;
             background: linear-gradient(135deg, #FFD700 0%, #FFDB4D 100%);
-            padding: 1rem;
+            padding: 0.5rem;
             padding-bottom: 1.5rem;
             text-align: center;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -91,27 +91,21 @@
             margin: 0;
             color: #1A1A1A; /* Darker text for better contrast */
             font-size: 2.4rem;
+            line-height: 3rem;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
         .header p {
-            margin: 0.2rem 0 0;
             font-size: 1.2rem;
+            line-height: 1.5rem;
             color: #333333;
             font-weight: 400;
         }
 
-        /* Style for engine container */
-        .engine-container {
-            height: 5rem;
-            position: relative;
-            margin: 0.5rem 0;
-            overflow: hidden;
-        }
         nav {
             position: sticky;
-            top: calc(4rem + 3rem + 1.2rem); /* Header height (4rem) + padding-bottom (4rem) + nav padding (1.2rem) */
+            top: calc(2.5rem + 3rem + 2.5rem); /* Header height (4rem) + padding-bottom (4rem) + nav padding (1.2rem) */
             background-color: #333;
             padding: 0.6rem;
             z-index: 999;
@@ -692,10 +686,8 @@
     
     <header class="header">
             <h1>AdhyaAI</h1>
-            <div class="steam-engine-container">
-                <iframe src="steam-engine.html" frameborder="0" scrolling="no" class="steam-engine-frame"></iframe>
-            </div>
             <p>Discovering, designing & building AI solutions for global tech startups</p>
+            <iframe src="steam-engine.html" frameborder="0" scrolling="no" class="steam-engine-frame"></iframe>
         </header>
 
     <nav>
