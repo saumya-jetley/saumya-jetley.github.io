@@ -18,9 +18,9 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden; /* Prevent horizontal scrolling */
+            min-height: 200vh;
         }
-
-        
+  
         
         .container {
             width: 100%;
@@ -77,7 +77,7 @@
         .header {
             position: sticky;
             top: 0;
-            background: linear-gradient(135deg, #FFD700 0%, #FFDB4D 100%);
+            background: linear-gradient(135deg, #FFDE59 0%, #FFDE59 100%);
             padding: 0.5rem;
             padding-bottom: 1.5rem;
             text-align: center;
@@ -182,8 +182,8 @@
         
         .content-panel {
             background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-            border-left: 4px solid #FFD000; /* Golden yellow accent */
-            border-top: 4px solid #FFD000; /* Golden yellow accent */
+            border-left: 4px solid #FFDE59; /* Golden yellow accent */
+            border-top: 4px solid #FFDE59; /* Golden yellow accent */
             padding: 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -209,7 +209,7 @@
         .feature-box {
             flex-basis: calc(33.333% - 20px);
             background-color: rgba(255, 255, 255, 0.7);
-            border-top: 3px solid #FFD000;
+            border-top: 3px solid #FFDE59;
             padding: 2rem;
             margin-bottom: 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -219,7 +219,7 @@
         .cta {
             background-color: #FFDE59;
             padding: 2.5rem;
-            max-width:90%;
+            max-width:80%;
             text-align: center;
             margin: 4rem 0;
             margin-bottom: 5rem;
@@ -237,6 +237,7 @@
         .page.homepage {
             display: none;
             margin: 0 auto;
+            min-height: 1200px;
         }
 
         .page.active {
@@ -257,6 +258,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 1rem;
         }
         
         h1 {
@@ -527,7 +529,7 @@
     .values-section {
         padding: 2.5rem;
         text-align: center;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #FFDE59;
         margin: 2rem;
         margin-bottom: 4rem;
         transition: transform 0.3s ease;
@@ -540,7 +542,7 @@
     
     .values-header {
         margin-bottom: 30px;
-        width:85%;
+        width:80%;
         margin: auto;
     }
     
@@ -576,7 +578,7 @@
     }
     
     .value-number {
-        background-color: #FFD000;
+        background-color: #FFDE59;
         color: #333;
         width: 50px;
         height: 50px;
@@ -709,27 +711,33 @@
                 <div class="content-panel"> <!-- look -->
                     <p style="text-align:center">From the union of <b>AI</b> with the <i>sanskrit</i> word 
                         <img src="./images/text-1737546265310.png" style="width:5rem"> ,</p>
-                    <h2 style="text-align:center">AdhyaAI is a single-person AI/ML consulting force founded to address the punctual 'expertise and strategy' needs of AI startups today.</h2>
+                    <h2 style="text-align:center">AdhyaAI is a one-person AI/ML taskforce founded to address the punctual 'expertise and strategy' needs of global tech startups today.</h2>
                 </div>
             </div>
         </section>
 
-            <!--
-            <p>At AdhyaAI, I build on an in-depth study of AI, from first principles to the latest in 
-            generative tools and techniques, to integrate AI within new and existing workflows.</p>
-            -->
-        
-            <!-- Values Section -->
-        <section class="values-section">
+        <section class="cta">
             <div class="container">
                 <div class="values-header">
-                    <img src="./images/gitim.jpeg" style="width:10rem; margin: 0.1rem;">
-                    <h3><a href="./Saumya-Jetley/profile.html">Saumya Jetley</a>, I am!</h3>
-                    <p style="text-align:justify">With a DPhil from Oxford University, 
-                    and over 10 years of Research & Applied AI (ML & Computer Vision) experience gained from working in bleeding-edge AI ecosystems across 
-                    continents and sectors my mission at AdhyaAI is simple:
-                    <i>"to help bring that frontier MVP to life"</i></p>
+                    <h2>Mission Statement</h2>
+                    <div style="display: flex; flex-direction: row"> 
+                        <div>
+                            <img src="./images/gitim.jpeg" style="width:10rem; margin: 0.1rem;">
+                            <h3><a href="./Saumya-Jetley/profile.html"><mark>Saumya Jetley</mark></a></h3>
+                            </div>
+
+                        <div>
+                            <p style="text-align:center">With a DPhil from Oxford University, 
+                        and over 10 years of experience tackling research & applied problems in the field of AI, ML & Computer Vision, working in bleeding-edge AI ecosystems across 
+                        continents (Europe, US, India) and sectors (healthcare, labour market, education) my mission at AdhyaAI is simple:
+                        <i>"to help bring that frontier MVP to life"</i></p>
+                            </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="cta" style = "background-color:  rgba(255, 255, 255, 0.6);">
+            <div class="container">
                 <div class="values-header" style="width:65%; margin: auto;">
                     <h2>Pillars of Work</h2>
                     <p> I work across functionalities to deliver holistic on-ground value </p>
@@ -745,7 +753,7 @@
                 <div class="value-card">
                     <div class="value-number">02</div>
                     <h3 class="value-title">User/Domain Understanding</h3>
-                    <p>Characterising user-tech relation, structuring domain knowledge for digital use</p>
+                    <p>Characterising User-Tech relation, structuring domain knowledge for digital solution design </p>
                 </div>
                 
                 <div class="value-card">
@@ -775,18 +783,20 @@
     <div class="container">
         <div class="values-grid" style="grid-template-columns: 40% 60%;">
                 <div class="value-card" style="width:85%; text-align:center;">
-                    <h3> I don't simply talk, I also <mark><a onclick="showPage('blog');">write</a></mark>.
-                        I don't simply discuss, I also <mark><a onclick="showPage('and_with_whom')">deliver</a></mark>.</h3>
+                    <h3> I don't simply talk, I <mark><a onclick="showPage('blog');">write</a></mark>.
+                        I don't simply discuss, I <mark><a onclick="showPage('and_with_whom')">deliver</a></mark>.</h3>
                         <br><br>
-                    </div>
+
+                    <p style="font-size:1.2rem"><b>Ethos: 
+                        honesty, professional conduct, and declaring it's a Success 
+                        only if it works at both ends.</b></p>
+                        
+                </div>
                 
                 <div class="values-card" style="width:80%; text-align:center;">
                     <img src="./images/main_page.jpeg" style="width: 70%" alt="AI Technology Illustration"></p>
                 </div>
         </div>
-        <p style="font-size:1.2rem"><b>Ethos: 
-            Honesty, Strong professional ethics, and declaring it's a Success 
-            only if it works at both ends.</b></p>
            
                 
             <hr className="border-t-2 border-gray-300 mb-6" />
@@ -798,7 +808,7 @@
     </div>
 </section>
 
-        <section class="cta">
+        <section class="cta" style = "background-color:  rgba(255, 255, 255, 0.6);">
             <div class="container">
                 
                     <h2 style="color:#333"><b>The origin story</b>...</h2> 
@@ -889,6 +899,23 @@
     
 
     <div id="how_we_work" class="page homepage">
+        <div class="container"> <!-- form (width) -->
+            <div class="content-panel"> <!-- look -->
+            <div class="main-container">
+                    <div class="box-container">
+                        <div onclick="showText(1)"><b>Discover</b></div>
+                        <div onclick="showText(2)"><b>Design</b></div>
+                        <div onclick="showText(3)"><b>Develop</b></div>
+                        <div onclick="showText(4)"><b>Deliver</b></div>
+                    </div>
+                    <div class="text-container" id="textDisplay"> 
+                    <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
+                        <br><br>
+                        We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
+                    </div>
+            </div>
+        </div>
+        </div>
 
               
         <div class="slider-container">
@@ -931,26 +958,6 @@
             </div>
         </div>
 
-         <section class="content-section"> <!-- form (top margin) -->    
-            <div class="container"> <!-- form (width) -->
-                <div class="content-panel"> <!-- look -->
-       
-                <div class="main-container">
-                        <div class="box-container">
-                            <div onclick="showText(1)"><b>Discover</b></div>
-                            <div onclick="showText(2)"><b>Design</b></div>
-                            <div onclick="showText(3)"><b>Develop</b></div>
-                            <div onclick="showText(4)"><b>Deliver</b></div>
-                        </div>
-                        <div class="text-container" id="textDisplay"> 
-                        <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
-                            <br><br>
-                            We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
-                        </div>
-                </div>
-            </div>
-            </div>
-        </section>
             <script>
                 function showText(boxNumber) {
                 const textDisplay = document.getElementById('textDisplay');
@@ -1001,7 +1008,7 @@
                         Speech AI for Insurance (KCs):
                         <ul style="font-size:0.7rem; transform: translateY(-10%);">
                             <li>Data strategy</li>
-                            <li>AI model design and customisation</li>
+                            <li>AI model architecture and fine-tuning</li>
                         </ul>
                     </div>
                 </a>
@@ -1021,8 +1028,8 @@
                         AI for Cardiovascular Care (KCs): 
                         <ul style="font-size:0.7rem; transform: translateY(-10%);">
                             <li>Data design</li>
-                            <li>User understanding & interface design</li>
-                            <li>Design & deployment of 2 core AI models</li>
+                            <li>User understanding & user experience design</li>
+                            <li>Design & deployment of 2 core AI modules for medication recommendation</li>
                         </ul>
                     </div>
                 </a>
