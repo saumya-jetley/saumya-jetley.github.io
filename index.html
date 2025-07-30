@@ -1,1295 +1,361 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdhyaAI</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
+        /* Sleek white design with scrollable title bar */
+        :root {
+            --bright-yellow: #FFEB3B;       /* Bright yellow - consistent throughout */
+            --black: #000000;               /* Black text */
+            --gray: #666666;                /* Gray for subtle text */
         }
         
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI';
-            background-color: #FFFAE0; /* Soft pale yellow */
-            color: #333;
+            font-family: 'Balsamiq Sans', cursive;
+            background-color: #FFFFFF;
+            color: var(--black);
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            min-height: 200vh;
+            font-weight: 300;
+            font-size: 1.1rem;
         }
-  
-        
-        .container {
-            width: 100%;
-            padding: auto;
-            margin: auto;
-            justify-items: center;
-        }
-
-        :root {
-           font-size: 10px; /* Base font size */
-        }
-
-        /* Small devices (phones) */
-        @media (min-width: 576px) {
-            .container {
-                max-width: 576px;
-            }
-            :root {
-                font-size: 10px;
-            }
-        }
-        
-        /* Medium devices (tablets) */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 768px;
-            }
-            :root {
-                font-size: 10px;
-            }
-        }
-        
-        /* Large devices (desktops) */
-        @media (min-width: 992px) {
-            .container {
-                max-width: 990px;
-            }
-            :root {
-                font-size: 16px;
-            }
-        }
-        
-        /* Extra large devices */
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1198px;
-            }
-            :root {
-                font-size: 18px;
-            }
-        }
-
         
         .header {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(135deg, #FFDE59 0%, #FFDE59 100%);
-            padding: 0.5rem;
-            padding-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            padding: 0.7rem 2vw;
             text-align: center;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            overflow: hidden;
+            position: relative;              /* Changed from sticky to relative */
             z-index: 1000;
+            border-bottom: none;
+            box-shadow: none;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .header:hover {
+            transform: translateY(-2px);
+        }
+
+        .header img {
+            width: 7vw;
+            height: auto;
+            margin-right: 5vw;
         }
 
         .header h1 {
             margin: 0;
-            color: #1A1A1A; /* Darker text for better contrast */
-            font-size: 2.4rem;
-            line-height: 3rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            color: var(--black);
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1vw;
+            text-shadow: 1vw 1vw 2vw rgba(255, 255, 255, 0.5);
+            background: var(--bright-yellow);
+            padding: 1.2rem 2rem;
+            border-radius: 10vw 3vw 10vw 3vw;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255, 235, 59, 0.4);
+            position: relative;
+            transform: rotate(-2deg);
+            max-width: 100%;
+            box-sizing: border-box;
+            word-break: break-word;
+        }
+
+        /* Add organic blob effect */
+        .header h1::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -10px;
+            right: -10px;
+            bottom: -6px;
+            background: var(--bright-yellow);
+            border-radius: 120px 40px 120px 40px;
+            z-index: -1;
+            opacity: 0.3;
+            transform: rotate(1deg);
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -6px;
+            right: -6px;
+            bottom: -3px;
+            background: var(--bright-yellow);
+            border-radius: 110px 35px 110px 35px;
+            z-index: -1;
+            opacity: 0.6;
+            transform: rotate(-1deg);
         }
 
         .header p {
-            font-size: 1.2rem;
-            line-height: 1.5rem;
-            color: #333333;
-            font-weight: 400;
+            margin: 8px 0 0;
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 300;
+            opacity: 0.9;
         }
 
-        nav {
-            position: sticky;
-            top: calc(2.5rem + 3rem + 2.5rem); /* Header height (4rem) + padding-bottom (4rem) + nav padding (1.2rem) */
-            background-color: #333;
-            padding: 0.6rem;
-            z-index: 999;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Base styles for all screen sizes */
-        nav li {
-            margin: 0 2rem; /* Smaller margins for mobile by default */
-        }
-        
-        /* Medium screens */
-        @media (min-width: 768px) {
-            nav li {
-                margin: 0 2rem; /* Slightly larger margins for tablets */
-            }
-        }
-        
-        /* Large screens */
-        @media (min-width: 992px) {
-            nav li {
-                margin: 0 3.5rem; /* Original large margins for desktop */
-            }
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a.active {
-            color: #FFDE59; /* Light yellow color for active state */
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #FFDE59;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
+        .section, .mission-section {
+            padding: 3rem 2vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #F0F0F0;
+            box-sizing: border-box;
             width: 100%;
         }
 
-        
-        .content-section {
-            padding: 2.0rem;
-            max-width: 95%;
-            transition: transform 0.3s ease;
-            animation: fadeIn 1s ease-out;
-            margin-bottom: 3rem;
-        }
-
-        .content-section:hover {
-            transform: scale(1.01);
-        }
-        
-        .content-panel {
-            background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-            border-left: 4px solid #FFDE59; /* Golden yellow accent */
-            border-top: 4px solid #FFDE59; /* Golden yellow accent */
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            }
-
-        .content-panel h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .content-panel h2 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 40px 0;
-        }
-
-        .feature-box {
-            flex-basis: calc(33.333% - 20px);
-            background-color: rgba(255, 255, 255, 0.7);
-            border-top: 3px solid #FFDE59;
-            padding: 2rem;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .cta {
-            background-color: #FFDE59;
-            padding: 2.5rem;
-            max-width:80%;
-            text-align: center;
-            margin: 4rem 0;
-            margin-bottom: 5rem;
-            transition: transform 0.3s ease;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .cta:hover {
-            transform: scale(1.01);
-        }
-
-
-        /* changed until here */
-        
-        .page.homepage {
-            display: none;
-            margin: 0 auto;
-            min-height: 1200px;
-        }
-
-        .page.active {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .wrappercontent {
-            display: flex;
-            flex-direction: row;
-        }
-        
-        .image-container {
-            flex: 1;
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.0rem;
-            color: #2C3E50;
+        .section:last-child {
+            border-bottom: none;
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.0rem;
-            color: #2C3E50;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            line-height: 1.8rem;
-            margin-bottom: 0.2rem;
-        }
-
-
-        ul {
-            font-size: 1.2rem;
-            line-height: 1.8rem;
-            margin-bottom: 0.2rem;
-        }
-
-         img{
-            vertical-align: middle;
-        }
-
-        mark {
-            background-color: #FFDE59;
-            color: grey;
-        }
-
-        /* page what we do */
-        
-        .container-title {
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%) translateY(-60%);
-            background-color: white;
-            font-weight: bold;
-            width: 30%;
-            text-align: center;
-            padding: 0.1rem 0.2rem 0.1rem 0.2rem;
-            
-        }
-        
-        .outer-container {
-            border: 0.1rem solid #333;
-            border-radius: 0.1rem;
-            position: relative;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            max-width:95%;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        /* page how we do*/
-        
-        .main-container {
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-        }
-        
-        .box-container {
-            display: flex;
-            flex-direction: column;
-            width: 20%;
-            max-width:20%;
-            gap: 1rem;
-            padding: 1rem;
-            font-size:1.3rem;
-            font-family: 'Segoe UI';
-            margin: 1.2rem;
-        }
-
-        .text-container {
-            width: 70%;
-            border: none; /* Removed border color */
-            background-color: #FFDE59; /* Added light background for visibility */
-            border-radius: 0.2rem;
-            padding: 1rem;
-            font-family: 'Segoe UI';
-            font-size: 1.2rem;
-        }
-        
-        .mustard-box {
-            background-color: #FFDE59;
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            border-radius: 0.2rem;
-            margin-right: 2rem;
-            transition: background-color 0.3s ease;
-            width: 27%;
-            font-size:1.1rem;
-            padding: 0.2rem;
-        }
-        
-        .mustard-box:hover {
-            background-color: #FFDE59; /* Darker mustard color on hover */
-        }
-        
-        .hover-text {
-            display: none;
-            position: absolute;
-            top: 100%;
-            background-color: white;
-            border: 0.2rem solid #FFDE59;
-            padding: 0.2rem;
-            box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.2);
-            z-index: 10;
-            border-radius: 0.2rem;
-            animation: popUp 0.3s ease;
-            width: 13rem;
-            font-size:0.8rem;
-        }
-        
-        .mustard-box:hover .hover-text {
-            display: block;
-        }
-
-        mustard-box:active, .mustard-box.active {
-            background-color: #FFDE59;
-        }
-        
-        @keyframes popUp {
-            from {
-                opacity: 0;
-                transform: translateY(-10%);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* and, with whom page */
-
-        .logo-container {
-            display: flex;
-            flex-wrap: wrap;
-            flex: 1;
-            justify-content: center;
-            width: 90%;
-            column-gap: 3rem; /* Horizontal spacing */
-        }
-        .logo-item {
-            position: relative;
-            width: 8rem;
-            transition: transform 0.3s ease;
-        }
-        .logo-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        .logo-hover-text {
-            position: relative;
-            width: 15rem;
-            left: 30%;
-            transform: translateX(-70%) translateY(-10%);
-            background-color:white;
-            color: black;
-            border-radius: 0.2rem;
-            opacity: 0;
-            transition: Opacity 0.4s ease;
-            z-index: 10;
-            font-size:0.85rem;
-            padding: 0 0;
-        }
-        .logo-item:hover {
-            transform: scale(1.1);
-        }
-        .logo-item:hover .logo-hover-text {
-            opacity: 1;
-        }
-
-        .logo-item:active {
-            cursor: pointer;
-        }
-
-        .curvypath-container {
-            position: relative;
-            width: 95%;
-            max-width: 95%;
-            justify-content: center;
-            align-items: center;
-            padding: 3.5rem 0;
-        }
-        
-        .curvy-path {
-            position: relative;
-            width: 100%;
-            height: 20rem;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"%3E%3Cpath d="M0 30 Q40 10, 80 30 Q120 50, 160 30 Q200 10, 240 30 Q280 50, 320 30" stroke="black" fill="transparent" stroke-width="2"/%3E%3C/svg%3E') no-repeat center;
-            background-size: cover;
-            align-items: center;
-        }
-        
-        /* Milestone Styling */
-        .milestone {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 12rem;
-            height: 12rem;
-            background-color: #bd3859;
-            border-radius: 50%;
-            border: 3px solid #ff9eb7; /* Added border with color */
-            color: white;
-            font-size: 0.8rem;
-            text-align: center;
-            transform: translate(-50%, -50%); /* Center correctly */    
-        }
-        
-        /* Adjusted Positions for Bottom Alignment */
-        .milestone-1 { top: 20%; left: 5%; width: 8.5rem; height: 8.5rem; }
-        .milestone-2 { top: 15%; left: 27%; width: 8.5rem; height: 8.5rem;}
-        .milestone-3 { top: 40%; left: 49%; width: 9.5rem; height: 9.5rem;}
-        .milestone-4 { top: 30%; left: 71%; width: 10rem; height: 10rem;}
-        .milestone-5 { top: 20%; left: 93%; width: 8.5rem; height: 8.5rem;}
-
-
-        .slider-container {
-            width: 70%;
-            max-width: 90%;
-            margin-bottom: 4rem;
-        }
-
-        .swiper {
-            width: 100%;
-            padding: 3rem 0;
-        }
-
-        .swiper-slide {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            padding: 1rem;
-            border-radius: 10%;
-            text-align: center;
-        }
-
-        .card-icon {
-            font-size: 1.1rem;
+            color: var(--black);
             margin-bottom: 1rem;
-            color: #ff6f61;
+            font-weight: 700;
+            font-size: 2rem;
+            border-bottom: 1px solid var(--bright-yellow);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            max-width: 100%;
+            word-break: break-word;
         }
 
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: bold;
+        h3 {
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1.5rem;
         }
 
-
-            /* Values Section */
-    .values-section {
-        padding: 2.5rem;
-        text-align: center;
-        background-color: #FFDE59;
-        margin: 2rem;
-        margin-bottom: 4rem;
-        transition: transform 0.3s ease;
-            animation: fadeIn 1s ease-out;
-    }
-
-    .values-section:hover {
-            transform: scale(1.01);
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            color: var(--black);
+            font-weight: 200;
         }
-    
-    .values-header {
-        margin-bottom: 30px;
-        width:80%;
-        margin: auto;
-    }
-    
-    .values-header h2 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        color: #333;
-    }
-    
-    .values-header p {
-        font-size: 1.2rem;
-        max-width: 95%;
-        margin: auto;
-        font-weight: 500;
-    }
-    
-    .values-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .value-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 1rem;
-        transition: transform 0.3s ease;
-    }
-    
-    .value-card:hover {
-        transform: translateY(-5px);
-    }
-    
-    .value-number {
-        background-color: #FFDE59;
-        color: #333;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-    
-    .value-title {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-        color: #333;
-    }
-    
-    .value-card p {
-        margin: 0;
-        color: #555;
-        font-size: 0.95rem;
-    }
 
-    .value-card h3 {
-        margin: 1;
-        color: #555;
-        font-size: 1.4rem;
-    }
-    
-    /* For mobile devices */
-    @media (max-width: 767px) {
         .values-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+            box-sizing: border-box;
         }
-        
+
+        /* On screens 900px wide or less, use 1 column */
+        @media (max-width: 900px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #F5F5F5;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            background: #fff;
+            box-sizing: border-box;
+        }
+
+        .value-item:hover {
+            border-color: var(--bright-yellow);
+            transform: translateY(-2px);
+        }
+
         .value-number {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
+            background-color: var(--bright-yellow);
+            color: var(--black);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+            border: 1px solid #E0E0E0;
         }
-        
-        .value-title {
-            font-size: 1.1rem;
-        }
-    }
 
-    @media (min-width: 768px) {
-        .values-grid {
-            grid-template-columns: repeat(5, 1fr);
+        .mission-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #F0F0F0;
         }
-    }
 
-    /* Steam engine iframe styling */
-    .steam-engine-frame {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40px;
-        border: none;
-        pointer-events: none;
-        background: transparent;
-        z-index: 1001;
+        .mission-section h2 {
+            color: var(--black);
+            font-weight: 700;
+        font-size: 2rem;
+            border-bottom: 1px solid var(--bright-yellow);
+            padding-bottom: 0.5rem;
+            display: inline-block;
     }
-
-    /* Animation for the steam engine */
-    .steam-engine {
-        position: absolute;
-        bottom: 10px;
-        left: -100px;
-        height: 30px;
-        animation: moveRight 20s linear infinite;
-    }
-
-    @keyframes moveRight {
-        from {
-            left: -100px;
-        }
-        to {
-            left: calc(100% + 100px);
-        }
-    }
-
-    /* Smoke animation */
-    @keyframes smoke {
-        0% {
-            transform: translateY(0) scale(1);
-            opacity: 0.8;
-        }
-        100% {
-            transform: translateY(-20px) scale(1.5);
-            opacity: 0;
-        }
-    }
-
-    .smoke {
-        position: absolute;
-        animation: smoke 2s infinite;
-    }
-    </style>
     
+        .mission-section p {
+            color: var(--black);
+        font-size: 1.1rem;
+            font-weight: 300;
+    }
+    
+        /* Responsive design */
+        @media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+                padding: 0.8rem 1.5rem;
+                border-radius: 80px 20px 80px 20px;
+            }
+            
+            .header h1::before {
+                border-radius: 90px 25px 90px 25px;
+            }
+            
+            .header h1::after {
+                border-radius: 85px 22px 85px 22px;
+            }
+            
+            .header p {
+                font-size: 1rem;
+                margin: 6px 0 0;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        .with-whom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: center;
+            margin: 2rem 0 1rem 0;
+        }
+
+        /* Responsive: 2 columns on tablets, 1 on mobile */
+        @media (max-width: 900px) {
+            .with-whom-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .with-whom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    
     <header class="header">
+            <img src="images/grassrootAI.png" alt="logo">
             <h1>AdhyaAI</h1>
-            <p>Discovering, designing & building AI solutions for global tech startups</p>
-            <iframe src="steam-engine.html" frameborder="0" scrolling="no" class="steam-engine-frame"></iframe>
-        </header>
+    </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#" onclick="showPage('who_we_are')" class="active">Who</a></li>
-                <li><a href="#" onclick="showPage('what_we_do')">What</a></li>
-                <li><a href="#" onclick="showPage('how_we_work')">How</a></li>
-                <li><a id = "and_with_whom_nav" href="#" onclick="showPage('and_with_whom')">and, with Whom</a></li>
-                <li><a id = "blog_nav" href="#" onclick="showPage('blog')">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
+    <section class="section">
+        <h2>Mission : To empower grassroot innovators</h2>
+        <p>I founded AdhyaAI to address the puntual AI expertise and strategy needs of grassroot tech startups around the globe. 
+        <p> To enable thousands of small and medium innovators that are bootstrapped, community-driven and building for pressing local needs.</p>
+    </section>
 
-    <div id="who_we_are" class="page homepage active">
-       
-        <section class="content-section"> <!-- form (top margin) -->    
-            <div class="container"> <!-- form (width) -->
-                <div class="content-panel"> <!-- look -->
-                    <p style="text-align:center">From the union of <b>AI</b> with the <i>sanskrit</i> word 
-                        <img src="./images/text-1737546265310.png" style="width:5rem"> ,</p>
-                    <h2 style="text-align:center">AdhyaAI is a one-person AI/ML taskforce founded to address the punctual 'expertise and strategy' needs of global tech startups today.</h2>
-                </div>
-            </div>
+    <section class="mission-section">
+        <h2>About : AI Researcher, Builder, Educator, and Skeptic</h2>
+        <p>Throughout my DPhil (Oxford University) and Post-doctorship (National Research Institute - INRIA, Paris) I focused on translatory AI research across areas as varied as real-time scene understanding for autonomous vehicles, augmented reality, healthcare, and labour economics.</p>
+        <p>My work has found applications through academic research (EPSRC, US DoD projects), startups (FiveAI, Vitally Health), and industrial partners (AP Hospital Group, QAPA job market platform, Dataiku for Enterprise AI).</p>
+        <p> I am proponent of open source innovation, collective standard-setting, and community-driven growth. I am leading DPI for AI efforts with my work on India Stack, specifically DEPA system for unlocking a responsible data and model economy.</p>   
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <div class="values-header">
-                    <h2>Mission Statement</h2>
-                    <div style="display: flex; flex-direction: row"> 
-                        <div>
-                            <img src="./images/gitim.jpeg" style="width:10rem; margin: 0.1rem;">
-                            <h3><a href="./Saumya-Jetley/profile.html"><mark>Saumya Jetley</mark></a></h3>
-                            </div>
-
-                        <div>
-                            <p style="text-align:center">With a DPhil from Oxford University, 
-                        and over 10 years of experience tackling research & applied problems in the field of AI, ML & Computer Vision, working in bleeding-edge AI ecosystems across 
-                        continents (Europe, US, India) and sectors (healthcare, labour market, education) my mission at AdhyaAI is simple:
-                        <i>"to help bring that frontier MVP to life"</i></p>
-                            </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta" style = "background-color:  rgba(255, 255, 255, 0.6);">
-            <div class="container">
-                <div class="values-header" style="width:65%; margin: auto;">
+    <section class="section">
                     <h2>Pillars of Work</h2>
-                    <p> I work across functionalities to deliver holistic on-ground value </p>
-                </div>
-            
             <div class="values-grid">
-                <div class="value-card">
+            <div class="value-item">
                     <div class="value-number">01</div>
-                    <h3 class="value-title">Market Research</h3>
-                    <p>Understanding competition, tech advantage, tech niche</p>
+                <h3>User Understanding</h3>
+                    <p>Requirements to specifications</p>
                 </div>
-                
-                <div class="value-card">
+            <div class="value-item">
                     <div class="value-number">02</div>
-                    <h3 class="value-title">User/Domain Understanding</h3>
-                    <p>Characterising User-Tech relation, structuring domain knowledge for digital solution design </p>
+                <h3>Domain Understanding</h3>
+                <p>Structuring specialised knowledge</p>
                 </div>
-                
-                <div class="value-card">
+            <div class="value-item">
                     <div class="value-number">03</div>
-                    <h3 class="value-title">Product strategy</h3>
-                    <p>Product roadmapping and feature prioritisation</p>
+                <h3>Productionising solutions</h3>
+                    <p>Operations and Logistics</p>
                 </div>
-                
-                <div class="value-card">
+            <div class="value-item">
                     <div class="value-number">04</div>
-                    <h3 class="value-title">Data strategy</h3>
-                    <p>Data bootstrapping through early features, identification/creation of data banks</p>
+                <h3>Data Strategy</h3>
+                <p>Data bootstrapping</p>
                 </div>
-                
-                <div class="value-card">
+            <div class="value-item">
                     <div class="value-number">05</div>
-                    <h3 class="value-title">AI Modelling</h3>
-                    <p>AI/tech discernment for methodical modelling and benchmarking</p>
+                <h3>Product Strategy</h3>
+                <p>Feature roadmapping</p>
                 </div>
+            <div class="value-item">
+                    <div class="value-number">05</div>
+                <h3>AI Modelling</h3>
+                <p>AI and Tech discernment</p>
             </div>
         </div>
     </section>
     
-    
-    <section class="values-section" style="border-bottom: 4px solid #FFD000; /* Golden yellow accent */
-    border-right: 4px solid #FFD000; /* Golden yellow accent */">
-    <div class="container">
-        <div class="values-grid" style="grid-template-columns: 40% 60%;">
-                <div class="value-card" style="width:85%; text-align:center;">
-                    <h3> I don't simply talk, I <mark><a onclick="showPage('blog');">write</a></mark>.
-                        I don't simply discuss, I <mark><a onclick="showPage('and_with_whom')">deliver</a></mark>.</h3>
-                        <br><br>
-
-                    <p style="font-size:1.2rem"><b>Ethos: 
-                        honesty, professional conduct, and declaring it's a Success 
-                        only if it works at both ends.</b></p>
-                        
-                </div>
-                
-                <div class="values-card" style="width:80%; text-align:center;">
-                    <img src="./images/main_page.jpeg" style="width: 70%" alt="AI Technology Illustration"></p>
-                </div>
-        </div>
-           
-                
-            <hr className="border-t-2 border-gray-300 mb-6" />
-            <div>
-                <p> Got an interesting challenge? Write to me at :  <mark><a href="mailto:sjetley@adhyaai.com"<b>sjetley@adhyaai.com</b></a></mark>
-
-                </p>
-            </div> 
-    </div>
-</section>
-
-        <section class="cta" style = "background-color:  rgba(255, 255, 255, 0.6);">
-            <div class="container">
-                
-                    <h2 style="color:#333"><b>The origin story</b>...</h2> 
-                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'">
-                        Given <a href="./Saumya-Jetley/profile.html"><mark>my scientific background</mark></a>, 
-                        it is not a surprise that I am deeply passionate about AI/tech solution scape and its growing democratization with a 
-                        rising number of startups.
-                        To play my part, a year ago I launched AdhyaAI - an AI/ML consulting tailored to address 
-                        the punctual 'expertise and strategy' needs of startups.</p>
-                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'">
-                        A startup may not always have the funds to hire broadly or be top heavy, but crucially it needs guidance 
-                        for its product and data strategy in its formative period.
-        
-                        I work across functionalities to co-architect AI solutions that align data and product strategy,
-                        helping build and deploy cutting-edge AI models that are customised, robust, and scalable.</p>
-
-                    <p style="color:#333; text-align: justify; font-family: 'Segoe UI'"> Here's a snapshot of my professional journey: </p>
-                
-        
-                    <div class="curvypath-container">
-                            <!-- Curvy Path -->
-                            <div class="curvy-path">
-                            <!-- Career Milestones -->
-                                <div class="milestone milestone-1"><a><b style="font-size:1rem; font-family: 'Segoe UI'">C-DAC
-                                </b><br>(centre that built India's first supercomputer)</a></div>
-                                <div class="milestone milestone-2"><a><b style="font-size:1rem; font-family: 'Segoe UI'">DPhil, Oxford University</b></a></div>
-                                <div class="milestone milestone-3"><a><b style="font-size:1rem; font-family: 'Segoe UI'">AI in<br>Industry & Startups</b>
-                                    <br> (XRCE, Five AI, INRIA)<br></a></div>
-                                <div class="milestone milestone-4"><a><b style="font-size:0.9rem; font-family: 'Segoe UI'">Founding-faculty & Associate Director, Plaksha</b> 
-                                    <br>India's fastest growing tech university</a></div>
-                                <div class="milestone milestone-5"><a><b style="font-size:1rem; font-family: 'Segoe UI'">AI Product Building 
-                                </b> <br>@ Global tech startups</a></div>
-                            </div>
-                    </div>
-            </div>
+    <section class="section">
+        <h2>Work IRL</h2>
+        <p>To discover, design, co-build, and mentor as per the unique needs of each project.</p>
+        <p>There are many gaps in AI innovation on ground. My work attempts to bridge some of these chasms between,</p>
+            <ul>
+                <li>Research & Productioning</li>  
+                <li>AI tech discernment & User needs</li>
+            </ul>
         </section>
 
-</div>
-
-        
-    <div id="what_we_do" class="page homepage"> 
-
-        <section class="content-section"> <!-- form (top margin) -->    
-            <div class="container"> <!-- form (width) -->
-                <div class="content-panel"> <!-- look -->
-        
-                    <p>I specialise in <b>AI-first:User-first</b> products, having previously tackled projects in HealthTech, EdTech, Insurance and 
-                    come with an added passion for AI leadership, education, and upskilling.</p>
-                </div>
-            </div>
-        
-                <div class="container-title">AI-centric focus areas</div>
-                    <div class="outer-container" style="justify-items:center">
-                        <div class="mustard-box" style= "text-align:center">
-                            <a> <b>Startup Consulting</b></a>
-                            <div class="hover-text">
-                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
-                                    <li>Data & product strategy</li>
-                                    <li>Product roadmap</li> 
-                                    <li>AI/tech development</li>  
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mustard-box" style="text-align:center">
-                            <a><b> Institution building</b></a>
-                            <div class="hover-text">
-                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
-                                    <li>Research blueprint</li>
-                                    <li>Growth strategy</li> 
-                                    <li>Partnership design</li>  
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mustard-box" style="text-align:center">
-                            <a> <b>Education and Upskilling</b></a>
-                            <div class="hover-text">
-                                <ul style="text-align:justify; color: #333; font-size: 1.0rem;">
-                                    <li>AI program design</li>
-                                    <li>Program management</li> 
-                                    <li>Course design and delivery</li>  
-                                </ul>
-                                </div>
-                        </div>
-                </div>
-    </section>
-    
-</div>
-    
-
-    <div id="how_we_work" class="page homepage">
-        <div class="container"> <!-- form (width) -->
-            <div class="content-panel"> <!-- look -->
-            <div class="main-container">
-                    <div class="box-container">
-                        <div onclick="showText(1)"><b>Discover</b></div>
-                        <div onclick="showText(2)"><b>Design</b></div>
-                        <div onclick="showText(3)"><b>Develop</b></div>
-                        <div onclick="showText(4)"><b>Deliver</b></div>
-                    </div>
-                    <div class="text-container" id="textDisplay"> 
-                    <b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what's needed</i> and <i>what's achievable</i>. 
-                        <br><br>
-                        We help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.
-                    </div>
-            </div>
+    <section class="section">
+        <h2>With whom ?</h2>
+        <div class="with-whom-grid">
+            <div><a href="https://vitt.ai/"><img src="./images/vitt_ai.jpeg" style="width:12vw"></a></div>
+            <div><a href="https://www.linkedin.com/company/vitally-health/"><img src="./images/vitally_health.jpeg" style="width:12vw"></div>
+            <div><a href="https://www.allindiaitr.com/company/esya-networks-opc-private-limited/U62012PN2024OPC229168">Esyanetworks</a></div>
         </div>
-        </div>
-
-              
-        <div class="slider-container">
-            <p><b> Skills/tools I use at my job:</b></p>
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <!-- Card 1 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">Confluence</div>
-                        </div>
-                    <!-- Card 2 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">Trello</div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">Jira</div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">AWS, Lambda functions</div>
-                    </div>
-                    <!-- Card 5 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">Python, Pytorch</div>
-                    </div>
-                    <!-- Card 6 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">Statistical analysis, Data visualisation</div>
-                    </div>
-                    <!-- Card 7 -->
-                    <div class="swiper-slide">
-                        <div class="card-title">HTML, CSS</div>
-                    </div>
-                </div>
-                <!-- Navigation Buttons -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-
-            <script>
-                function showText(boxNumber) {
-                const textDisplay = document.getElementById('textDisplay');
-                const texts = {
-                    1: '<b>Discover</b>: The journey of invention for businesses old and new starts with identifying functionalities that sit at the juncture of <i>what\'s needed</i> and <i>what\'s achievable</i>. <br> <br> I help startups with market research and user understanding, at the same time leveraging this knowledge to iterate over the AI/tech solution design so the execution can seamlessly follow the vision.',
-                    2: '<b>Design</b>: I help design AI systems, creating a co-aligned product and data roadmap such that the resulting AI system is learnable and scalable.',
-                    3: '<b>Develop</b>: Existing teams need guidance with tech discernment: models abound, but which ones are most suitable? Building, testing and deploying models, user trials, and integrated iteration are key areas of my work.',
-                    4: '<b>Deliver</b>: I help build AI models and tools, write technical concept papers, grant proposals, design evidence-based research studies, develop student/early-professionals training programmes - but also - make the last mile delivery.'
-                };
-                textDisplay.innerHTML = texts[boxNumber];
-                }
-            </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script>
-            var swiper = new Swiper(".swiper", {
-                slidesPerView: 3,
-                spaceBetween: 10,
-                loop: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    768: { slidesPerView: 3 },
-                    1024: { slidesPerView: 3 }
-                }
-            });
-        </script>
-
-</div>
-
-    
-    <div id="and_with_whom" class="page homepage" nav_link_id = "and_with_whom_nav">
-         <section class="content-section"> <!-- form (top margin) -->    
-            <div class="container"> <!-- form (width) -->
-                <div class="content-panel"> <!-- look -->
-       
-            <h3> Teams I've worked with:</h3>
-            <div class="logo-container">
-                <a href="https://vitt.ai/" id = "delayedLink3" class="logo-item">
-                    <img src="./images/vitt_ai.jpeg" alt="Vitt_AI">
-                    <div class="logo-hover-text">
-                        Speech AI for Insurance (KCs):
-                        <ul style="font-size:0.7rem; transform: translateY(-10%);">
-                            <li>Data strategy</li>
-                            <li>AI model architecture and fine-tuning</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="https://www.vitally.health/" id = "delayedLink4" class="logo-item">
-                    <img src="./images/vitally_health.jpeg" alt="Vitally_Health">
-                    <div class="logo-hover-text">
-                        Clinical & Molecular Diagnostics for Precision heart health (KCs):
-                        <ul style="font-size:0.7rem; transform: translateY(-10%);">
-                            <li>Research grant writing</li>
-                            <li>Data & Model verificaton</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="https://www.vascai.com/" id = "delayedLink5" class="logo-item">
-                    <img src="./images/vascai.png" alt="VascAI">
-                    <div class="logo-hover-text">
-                        AI for Cardiovascular Care (KCs): 
-                        <ul style="font-size:0.7rem; transform: translateY(-10%);">
-                            <li>Data design</li>
-                            <li>User understanding & user experience design</li>
-                            <li>Design & deployment of 2 core AI modules for medication recommendation</li>
-                        </ul>
-                    </div>
-                </a>
-        </div>
-        <br>
-        <a style="font-size:0.8rem">(*KCs: Key Contributions)</a>
-        <hr className="border-t-2 border-gray-300 mb-6" />
-        <p> <i>Join the list, give us a challenge; let's work together.</i><br>
-            Reach out to me at : <mark><a href="mailto:sjetley@adhyaai.com"<b>sjetley@adhyaai.com</b></a></mark>
-        </p>
-
-            <script>
-                let timer;
-                link_ids = ['delayedLink1', 'delayedLink2','delayedLink3','delayedLink4', 'delayedLink5']
-                link_ids.forEach(id => {
-                    const link = document.getElementById(id);
-                    if (link) {
-                        link.addEventListener('click', (e) => {
-                        if (!link.classList.contains('active')) {
-                            e.preventDefault();
-                        
-                            timer = setTimeout(() => {
-                                link.classList.add('active');
-                            }, 1000);// 1 second delay
-                       }
-                    });
-                    }
-                });
-                
-                /*
-                link.addEventListener('mouseenter', () => {
-                    timer = setTimeout(() => {
-                        link.classList.add('active');
-                    }, 3000); // 3 seconds delay
-                });
-        
-                link.addEventListener('mouseleave', () => {
-                    clearTimeout(timer);
-                    link.classList.remove('active');
-                });
-                */
-                
-            </script>
-        </div>
-        </div>
-        </section>
-    </div>
-    
-    <script>
-        function showPage(pageId) {
-
-             /* Scroll to header when changing pages */
-             document.querySelector('header').scrollIntoView({
-                    behavior: 'instant'});
-
-            /* for the page */
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-
-            /* for the nav*/
-            document.querySelectorAll('nav a').forEach(navlink => {
-                navlink.classList.remove('active');
-            });
-            // will work if the event is clicking the nav button
-            event.target.classList.add('active')
-            // will work if the event is clicking through page link
-            const page_item = document.getElementById(pageId)
-            document.getElementById(page_item.getAttribute('nav_link_id')).classList.add('active')
-            
-            /* for the logo */
-            /*document.getElementById('adhyaai-logo').style.visibility = pageId !== 'who_we_are' ? 'visible' : 'hidden';*/
-            document.getElementById('adhyaai-logo').style.visibility = 'visible';           
-        
-        }
-    </script>
-
-    <div id="blog" class="page homepage" nav_link_id = "blog_nav">
-        <section class="blog-section">
-            <div class="blog-container">
-                <div class="blog-nav">
-                    <div blog_content_id=blog2 class="blog-nav-item active">
-                        <span class="blog-date">Dec 2024</span>
-                        <span class="blog-title">Systemising Agentic AI</span>
-                    </div>
-                    <div blog_content_id = blog1 class="blog-nav-item">
-                        <span class="blog-date">Nov 2024</span>
-                        <span class="blog-title">The CV Story</span>
-                    </div>
-                </div>
-                
-                <div class="blog-content">
-                    <article id=blog2 class="blog-post active">
-                        <h2>Systemising Agentic AI: A case study</h2>
-                        <p class="blog-meta">December 17, 2024 | 5 min read</p>
-                        <iframe src="./a-blog-articles/agentic-ai.html"></iframe>
-                    
-                    </article> 
-                    <article id=blog1 class="blog-post">
-                        <h2>The CV Story: There and back again</h2>
-                        <p class="blog-meta">November 15, 2024 | 5 min read</p>
-                        <iframe src="./a-blog-articles/deepCV.html"></iframe>
-                    </article>
-                </div>  
-            </div>
+        <p>Cross sectoral: insurance, healthcare, ICT and growing...</p>
+        <p><i>For partnerships, write to saumya[dot]jetley[at]adhyaai[dot]com</i></p>
         </section>
 
-        <style>
-            .blog-section {
-                padding: 2rem;
-                width: 80%;
-                margin: 0 auto;
-            }
-
-            .blog-container {
-                display: flex;
-                gap: 2rem;
-                flex-direction: row;
-            }
-
-            .blog-nav {
-                flex: 0 0 250px;
-                border-right: 2px solid #FFD000;
-                padding-right: 1rem;
-            }
-
-            .blog-nav-item {
-                display: flex;
-                flex-direction: column;
-                padding: 1rem;
-                cursor: pointer;
-                border-radius: 0.5rem;
-                transition: background-color 0.3s ease;
-            }
-
-            .blog-nav-item:hover {
-                background-color: rgba(255, 222, 89, 0.2);
-            }
-
-            .blog-nav-item.active {
-                background-color: rgba(255, 222, 89, 0.3);
-            }
-
-            .blog-date {
-                font-size: 0.9rem;
-                color: #666;
-            }
-
-            .blog-title {
-                font-weight: bold;
-                color: #333;
-            }
-
-            .blog-content {
-                flex: 1;
-            }
-
-            .blog-post {
-                display: none;
-                background-color: rgba(255, 255, 255, 0.7);
-                padding: 2rem;
-                border-radius: 0.5rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-                width: 100%;
-            }
-
-            .blog-post.active {
-                display: block;
-            }
-
-            .blog-post h2 {
-                margin-top: 0;
-                color: #333;
-            }
-
-            .blog-meta {
-                color: #666;
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .blog-post iframe {
-                width: 100%;
-                height: 80rem;
-                border: none;
-                overflow: hidden;
-                background: transparent;
-                margin: 0;
-                padding: 0;
-                display: block;
-            }
-                
-            /* Add responsive iframe height */
-            @media screen and (max-width: 768px) {
-                .blog-post iframe {
-                    min-height: 400px;
-                }
-            }
-
-            .read-more {
-                display: inline-block;
-                color: #333;
-                text-decoration: none;
-                font-weight: bold;
-                margin-top: 1rem;
-                transition: color 0.3s ease;
-            }
-
-            .read-more:hover {
-                color: #FFD000;
-            }
-
-            /* Mobile Responsive Design */
-            @media (max-width: 768px) {
-                .blog-container {
-                    flex-direction: column;
-                }
-
-                .blog-nav {
-                    flex: none;
-                    border-right: none;
-                    border-bottom: 2px solid #FFD000;
-                    padding-right: 0;
-                    padding-bottom: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                .blog-nav-item {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 0.8rem;
-                }
-
-                .blog-date {
-                    font-size: 0.8rem;
-                }
-            }
-        </style>
-
-        <script>
-            document.querySelectorAll('.blog-nav-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    // Remove active class from all items
-                    document.querySelectorAll('.blog-nav-item').forEach(i => i.classList.remove('active'));
-                
-                    // Update the blog content
-                    document.querySelectorAll('.blog-post').forEach(post => post.classList.remove('active'));
-                    
-                    // activate the blog-nav-item
-                    item.classList.add('active') 
-                    // activate the associated blog-post 
-                    document.getElementById(item.getAttribute('blog_content_id')).classList.add('active');
-                    
-                });
-            });
-        </script>
-
-    </div>
+    
+    <section class="section">
+        <h2>Blog</h2>
+        <p>Coming soon...</p>
+        </section>
 
 </body>
 </html>
